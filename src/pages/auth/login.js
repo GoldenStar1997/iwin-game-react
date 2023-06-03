@@ -1,13 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  LoginSocialGoogle,
-} from 'reactjs-social-login';
-
-import {
-  GoogleLoginButton,
-} from 'react-social-login-buttons';
-
+import { googleLogout, useGoogleLogin } from '@react-oauth/google';
+import axios from 'axios';
 import login from '../../utils/ajax';
 import $ from 'jquery';
 
@@ -26,6 +20,39 @@ const LoginPage = () => {
     }
   };
 
+  const [user, setUser] = useState([]);
+  const [profile, setProfile] = useState([]);
+
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => setUser(codeResponse),
+    onError: (error) => console.log('Login Failed:', error)
+  });
+
+  useEffect(
+    () => {
+      if (user) {
+        axios
+          .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
+            headers: {
+              Authorization: `Bearer ${user.access_token}`,
+              Accept: 'application/json'
+            }
+          })
+          .then((res) => {
+            setProfile(res.data);
+          })
+          .catch((err) => console.log(err));
+      }
+    },
+    [user]
+  );
+
+  // log out function to log the user out of google and set the profile array to null
+  const logOut = () => {
+    googleLogout();
+    setProfile(null);
+  };
+
   return (
     <>
       <div className="limiter">
@@ -35,35 +62,18 @@ const LoginPage = () => {
               <span className="login100-form-title p-b-53">
                 Sign In
               </span>
-
               <div className='row' style={{ width: "100%" }}>
-                <LoginSocialGoogle
-                  isOnlyGetToken
-                  client_id="686110024658-8vp70u620t9imo5hsv4eq9h21fiet3ko.apps.googleusercontent.com"
-                  onResolve={({ provider, data }) => {
-                    if (provider === 'google' && data) {
-                      const { accessToken } = data;
-
-                      fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
-                        headers: {
-                          Authorization: `Bearer ${accessToken}`
-                        }
-                      })
-                        .then(response => response.json())
-                        .then(data => {
-                          console.log(data);
-                        })
-                        .catch(error => {
-                          console.log(error);
-                        });
-                    }
-                  }}
-                  onReject={(err) => {
-                    console.log(err)
-                  }}
-                >
-                  <GoogleLoginButton />
-                </LoginSocialGoogle>
+                {profile ? (
+                  <div>
+                    <img src={profile.picture} alt="user image" />
+                    <h3>User Logged in</h3>
+                    <p>Name: {profile.name}</p>
+                    <p>Email Address: {profile.email}</p>
+                    <button onClick={logOut}>Log out</button>
+                  </div>
+                ) : (
+                  <button onClick={() => login()}>Sign in with Google 🚀 </button>
+                )}
               </div>
 
               <div className="p-t-31 p-b-9">
