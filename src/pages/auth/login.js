@@ -41,7 +41,7 @@ const LoginPage = () => {
               <div className='row' style={{width:"100%"}}>
                 <LoginSocialGoogle
                   isOnlyGetToken
-                  client_id="686110024658-2mec18ai164bb1jlf7oq0kbqimghqkt3.apps.googleusercontent.com"
+                  client_id={process.env.GOOGLE_CLIENT_ID}
                   onResolve={({ provider, data }) => {
                     console.log(provider, data)
                   }}
@@ -52,7 +52,7 @@ const LoginPage = () => {
                   <GoogleLoginButton />
                 </LoginSocialGoogle>
 
-                <LoginSocialFacebook
+                {/* <LoginSocialFacebook
                   isOnlyGetToken
                   appId={process.env.FACEBOOK_CREDENTIAL}
                   onResolve={({ provider, data }) => {
@@ -63,7 +63,7 @@ const LoginPage = () => {
                   }}
                 >
                   <FacebookLoginButton />
-                </LoginSocialFacebook> 
+                </LoginSocialFacebook>  */}
               </div>
 
               <div className="p-t-31 p-b-9">

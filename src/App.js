@@ -2,7 +2,9 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './pages/auth/login';
 import Register from './pages/auth/register';
+import dotenv from 'dotenv';
 
+dotenv.config();
 const App = () => {
   return (
     <BrowserRouter>
