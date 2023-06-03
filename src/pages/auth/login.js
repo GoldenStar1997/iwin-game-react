@@ -2,22 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   LoginSocialGoogle,
-  LoginSocialFacebook,
 } from 'reactjs-social-login';
 
 import {
   GoogleLoginButton,
-  FacebookLoginButton,
 } from 'react-social-login-buttons';
+
 import login from '../../utils/ajax';
 import $ from 'jquery';
 
 const LoginPage = () => {
-  // const REDIRECT_URI = window.location.href;
   const handleLogin = async () => {
     if (
       $('#log-username').val() &&
-      $('#log-pass').val() 
+      $('#log-pass').val()
     ) {
       login('/login', {
         id: $('#log-username').val(),
@@ -38,12 +36,27 @@ const LoginPage = () => {
                 Sign In
               </span>
 
-              <div className='row' style={{width:"100%"}}>
+              <div className='row' style={{ width: "100%" }}>
                 <LoginSocialGoogle
                   isOnlyGetToken
-                  client_id={process.env.GOOGLE_CLIENT_ID}
+                  client_id="686110024658-8vp70u620t9imo5hsv4eq9h21fiet3ko.apps.googleusercontent.com"
                   onResolve={({ provider, data }) => {
-                    console.log(provider, data)
+                    if (provider === 'google' && data) {
+                      const { accessToken } = data;
+
+                      fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                        headers: {
+                          Authorization: `Bearer ${accessToken}`
+                        }
+                      })
+                        .then(response => response.json())
+                        .then(data => {
+                          console.log(data);
+                        })
+                        .catch(error => {
+                          console.log(error);
+                        });
+                    }
                   }}
                   onReject={(err) => {
                     console.log(err)
@@ -51,19 +64,6 @@ const LoginPage = () => {
                 >
                   <GoogleLoginButton />
                 </LoginSocialGoogle>
-
-                {/* <LoginSocialFacebook
-                  isOnlyGetToken
-                  appId={process.env.FACEBOOK_CREDENTIAL}
-                  onResolve={({ provider, data }) => {
-                    console.log(provider, data)
-                  }}
-                  onReject={(err) => {
-                    console.log(err)
-                  }}
-                >
-                  <FacebookLoginButton />
-                </LoginSocialFacebook>  */}
               </div>
 
               <div className="p-t-31 p-b-9">
