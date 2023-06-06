@@ -1,0 +1,32 @@
+.home{
+  background-color: black;
+  min-height: 100vh;
+  color: white;
+
+  .navbar{
+    background-color: #343a40 !important;
+  }
+
+  .game-category {
+    a{
+      color: #a27b46 !important;
+    }
+    a:hover{
+      color: white !important;
+    }
+  }
+  
+  
+  .pagination {
+    ul{
+      display: flex;
+      li{
+        list-style: none !important;
+        padding: 10px;
+        a{
+          color: white;
+        }
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useGoogleLogin } from '@react-oauth/google';
-import "./assets/login.css";
+import "./assets/login.scss";
 
 function Login() {
   const navigate = useNavigate();
@@ -44,31 +44,34 @@ function Login() {
   });
 
   const mLogin = async () => {
-    
+
   };
 
 
   return (
-    <>
-      <div className="btn-group">
-        <button onClick={gLogin} className="btn btn-sm btn-primary"> Login with Google</button>
-        <button onClick={mLogin} className="btn btn-sm btn-danger"> Login with MetaMask</button>
+    <div className='auth-container'>
+      <div>
+        <div className="btn-group">
+          <button onClick={gLogin} className="btn btn-sm btn-primary"> Login with Google</button>
+          <button onClick={mLogin} className="btn btn-sm btn-danger"> Login with MetaMask</button>
+        </div>
+        <br />
+        <p className="title">Login Form</p>
+
+        <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
+
+          <input type="text" placeholder="User Name" {...register("name", { required: true })} />
+          {errors.name && <span style={{ color: "red" }}> *User Name* is mandatory </span>}
+
+          <input type="password" placeholder="Password"  {...register("password", { required: true })} />
+          {errors.password && <span style={{ color: "red" }}> *Password* is mandatory </span>}
+
+          <input type={"submit"} style={{ backgroundColor: "#a1eafb" }} />
+        </form>
+        <Link to='/register' type="">register?</Link>
+
       </div>
-      <br />
-      <p className="title">Login Form</p>
-
-      <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-
-        <input type="text" placeholder="User Name" {...register("name", { required: true })} />
-        {errors.name && <span style={{ color: "red" }}> *User Name* is mandatory </span>}
-
-        <input type="password" placeholder="Password"  {...register("password", { required: true })} />
-        {errors.password && <span style={{ color: "red" }}> *Password* is mandatory </span>}
-
-        <input type={"submit"} style={{ backgroundColor: "#a1eafb" }} />
-      </form>
-      <Link to='/register' type="">register?</Link>
-    </>
+    </div>
   );
 }
 export default Login;
