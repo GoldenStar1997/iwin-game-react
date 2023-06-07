@@ -18,10 +18,9 @@ function Login() {
   const onSubmit = async (data) => {
     await axios.post("http://localhost:4000/auth/login", data)
       .then(res => {
-        console.log(res)
         if (res.data.accessToken) navigate('/home');
       })
-      .catch(error => console.log(error))
+      .catch(error => { throw error; })
   };
 
   // google login
@@ -31,47 +30,82 @@ function Login() {
         access_token: user.access_token
       })
         .then(res => {
-          console.log(res)
           if (res.data.success) navigate('/home');
           else {
             if (window.confirm(res.data.error + "! Register?"))
               navigate('/register')
           }
         })
-        .catch(error => console.log(error))
+        .catch(error => { throw error; })
     },
     onError: (error) => console.log('ReqControl Failed:', error)
   });
 
-  const mLogin = async () => {
-
-  };
-
-
   return (
-    <div className='auth-container'>
-      <div>
-        <div className="btn-group">
-          <button onClick={gLogin} className="btn btn-sm btn-primary"> Login with Google</button>
-          <button onClick={mLogin} className="btn btn-sm btn-danger"> Login with MetaMask</button>
+    <section id="login-reg">
+      <div className="overlay pb-120">
+        <div className="container">
+          <div className="top-area">
+            <div className="row d-flex align-items-center">
+              <div className="col-sm-5 col">
+                <Link className="back-home" to="/">
+                  <img src="./assets/images/left-icon.png" alt="" />
+                  Back To iWinGames
+                </Link>
+              </div>
+              <div className="col-sm-5 col">
+                <Link to="#">
+                  <img src="./assets/images/logo.png" alt="" />
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="row pt-120 d-flex justify-content-center">
+            <div className="col-lg-6">
+              <div className="login-reg-main text-center">
+                <h4>Welcome To iWinGames</h4>
+                <div className="form-area">
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className="form-group">
+                      <label>Username</label>
+                      <input type="text" placeholder="User Name" {...register("name", { required: true })} />
+                      {errors.name && <span> *User Name* is mandatory </span>}
+                    </div>
+                    <div className="form-group">
+                      <label>Password</label>
+                      <input type="password" placeholder="Password"  {...register("password", { required: true })} />
+                      {errors.password && <span> *Password* is mandatory </span>}
+                    </div>
+                    <div className="form-group recover">
+                      <p>Forgot your password? <Link to="#">Recover Password</Link></p>
+                    </div>
+                    <div className="form-group">
+                      <button type="submit" className="cmn-btn">Sign In</button>
+                    </div>
+                  </form>
+                  <div className="or">
+                    <p>OR</p>
+                  </div>
+                  <div className="sign-in">
+                    <p>Sign in with your</p>
+                  </div>
+                  <div className="reg-with">
+                    <div className="social-area d-flex justify-content-center">
+                      <Link to=""><img src="./assets/images/social-icon-1.png" alt="" /></Link>
+                      <Link className="twitch" ><img src="./assets/images/social-icon-2.png" alt="" /></Link>
+                      <Link className="google" onClick={ gLogin } ><img src="./assets/images/social-icon-3.png" alt="" /></Link>
+                    </div>
+                  </div>
+                  <div className="account">
+                    <p>Don't have an account? <Link to="/register">Sign Up Here</Link></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <br />
-        <p className="title">Login Form</p>
-
-        <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-
-          <input type="text" placeholder="User Name" {...register("name", { required: true })} />
-          {errors.name && <span style={{ color: "red" }}> *User Name* is mandatory </span>}
-
-          <input type="password" placeholder="Password"  {...register("password", { required: true })} />
-          {errors.password && <span style={{ color: "red" }}> *Password* is mandatory </span>}
-
-          <input type={"submit"} style={{ backgroundColor: "#a1eafb" }} />
-        </form>
-        <Link to='/register' type="">register?</Link>
-
       </div>
-    </div>
+    </section>
   );
 }
 export default Login;

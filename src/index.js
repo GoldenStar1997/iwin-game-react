@@ -9,12 +9,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <GoogleOAuthProvider clientId="686110024658-8vp70u620t9imo5hsv4eq9h21fiet3ko.apps.googleusercontent.com">
     <React.StrictMode>
+      <div className="preloader" id="preloader"></div>
       <App />
     </React.StrictMode>
   </GoogleOAuthProvider>,
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

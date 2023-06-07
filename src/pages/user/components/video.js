@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function video() {
   return (
-    <div className="col-md-12 col-lg-3">
       <div className="container">
         <div className="row">
           <div className="col-md-12">
@@ -24,6 +23,5 @@ export default function video() {
           </div>
         </div>
       </div>
-    </div>
   )
 }
