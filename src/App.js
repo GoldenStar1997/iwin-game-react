@@ -1,26 +1,34 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from './pages/auth/login';
-import Register from './pages/auth/register';
-import Home from './pages/user/home';
-import Yard from './pages/user/yard';
-import NotFound from './pages/notFound';
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-// import "jquery"
-// import "popper.js"
-// import "bootstrap/dist/js/bootstrap"
-// import "bootstrap/dist/css/bootstrap.min.css"
+import Login from './pages/auth/login'
+import Register from './pages/auth/register'
+import Contact from './pages/user/contact'
+import Error from './pages/error'
+import Profile from './pages/user/profile'
+
+
+import Home from './pages/user/home'
+import Tour from './pages/user/tour'
+import Game from './pages/user/game'
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
+
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/games/practice/:gameId" element={<Yard />} />
-        <Route path="*" element={<NotFound />} />
+
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/tour" element={<Tour />} />
+
+        <Route path="/profile/:username" element={<Profile />} />
+
+        <Route path="/games/:gameId" element={<Game />} />
+
+        <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
   );

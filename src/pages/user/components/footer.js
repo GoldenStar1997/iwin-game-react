@@ -1,33 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Ads() {
+export default function Footer() {
   return (
     <footer id="footer-section">
-      <div className="overlay">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="footer-top">
-                <div className="row justify-content-center">
-                  <div className="col-lg-6 col-md-8">
-                    <div className="top-area text-center">
-                      <h3>Subscribe to Our Newsletter</h3>
-                      <p>Receive news, stay updated and special offers</p>
-                    </div>
-                    <form action="#">
-                      <div className="subscribe d-flex">
-                        <input type="email" placeholder="Your Email Address" />
-                        <button className="cmn-btn">Subscribe</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="footer-mid pt-120">
         <div className="container">
           <div className="row d-flex">

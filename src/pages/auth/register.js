@@ -61,7 +61,7 @@ const Register = () => {
 										<div className="form-group">
 											<label>Username</label>
 											<input
-												type="email"
+												type="text"
 												placeholder="Email"
 												{...register('email', { required: true })}
 											/>

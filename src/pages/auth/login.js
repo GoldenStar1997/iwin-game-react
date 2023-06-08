@@ -18,7 +18,11 @@ function Login() {
   const onSubmit = async (data) => {
     await axios.post("http://localhost:4000/auth/login", data)
       .then(res => {
-        if (res.data.accessToken) navigate('/home');
+        if (res.data.accessToken){
+          navigate('/home')
+        } else {
+          alert(res.data.error)
+        }
       })
       .catch(error => { throw error; })
   };

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-export default function Yard() {
-  const { gameId } = useParams();
+export default function Game() {
+  const { username } = useParams();
   return (
     <div>
-      {gameId}
+      { username }
     </div>
   )
 }

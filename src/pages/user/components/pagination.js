@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { Link } from 'react-router-dom';
 
-
 function PaginatedItems({ itemsPerPage, games }) {
 
   const [itemOffset, setItemOffset] = useState(0);
@@ -20,17 +19,62 @@ function PaginatedItems({ itemsPerPage, games }) {
       {
         currentItems &&
         currentItems.map((item, i) => (
-          <div className="col-sm-3" key={i}>
-            <div className="card" style={{ marginBottom: "10px" }}>
-              <img src={"./assets/images/games/" + item.image } className="card-img-top" alt="..." />
-              <div className="card-body">
-                <Link to={"/games/practice/"+ item.alias } className="card-title">{ item.name }</Link>
+          <div className="single-item" key={i}>
+            <div className="row">
+              <div className="col-lg-3 col-md-3 d-flex align-items-center">
+                <img className="top-img" src={"./assets/images/games/" + item.image} alt="no-found" />
+              </div>
+              <div className="col-lg-6 col-md-9 d-flex align-items-center">
+                <div className="mid-area">
+                  <h4>{item.name}</h4>
+                  <div className="title-bottom d-flex">
+                    <div className="time-area bg">
+                      <img src="./assets/images/waitng-icon.png" alt="no-found" />
+                      <span>Starts in</span>
+                      <span className="time">10d 2H 18M</span>
+                    </div>
+                    <div className="date-area bg">
+                      <span className="date">Apr 21, 5:00 AM EDT</span>
+                    </div>
+                  </div>
+                  <div className="single-box d-flex">
+                    <div className="box-item">
+                      <span className="head">ENTRY/PLAYER</span>
+                      <span className="sub">10 Credits</span>
+                    </div>
+                    <div className="box-item">
+                      <span className="head">Team Size</span>
+                      <span className="sub">2 VS 2</span>
+                    </div>
+                    <div className="box-item">
+                      <span className="head">Max Teams</span>
+                      <span className="sub">64</span>
+                    </div>
+                    <div className="box-item">
+                      <span className="head">Enrolled</span>
+                      <span className="sub">11</span>
+                    </div>
+                    <div className="box-item">
+                      <span className="head">skill Level</span>
+                      <span className="sub">All</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3 d-flex align-items-center">
+                <div className="prize-area text-center">
+                  <div className="contain-area">
+                    <span className="prize"><img src="./assets/images/price-coin.png" alt="no-found" />prize</span>
+                    <h4 className="dollar">${Math.ceil(item.win)}</h4>
+                    <Link to={"/games/"+ item.alias} className="cmn-btn">Start Tournament</Link>
+                    <p>Top 3 Players Win a Cash Prize</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         ))
       }
-
 
       <ReactPaginate
         breakLabel="..."
@@ -40,6 +84,8 @@ function PaginatedItems({ itemsPerPage, games }) {
         pageCount={pageCount}
         previousLabel="< prev"
         renderOnZeroPageCount={null}
+        containerClassName="pager-group"
+        
       />
     </>
   );

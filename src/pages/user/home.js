@@ -1,33 +1,33 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "./components/navbar";
-import Banner from './components/banner'
-import Main from "./components/games";
-import Footer from "./components/footer";
-import axios from 'axios'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-import './assets/home.scss';
+import Navbar from './components/navbar'
+import Banner from './components/home-banner'
+import How_works from './components/how_works'
+import Counter from './components/counter'
+import Winners from './components/winners'
+import Fearture from './components/fearture'
+import Call_action from './components/call_action'
+import Testimonials from './components/testimonials'
+import Profile from './components/profile'
+import Footer from './components/footer'
 
-export default function Home() {
-  const [games, setGameList] = useState([]);
-
-  const getGameList = async function () {
-    const response = await axios.post("http://localhost:4000/user/games");
-    const { success, data } = response.data;
-
-    if (success) setGameList(data);
-  };
-  
-  useEffect(() => {
-    getGameList();
-  }, []);
-
-
+export default function home() {
   return (
-    <div className="home">
+    <div>
+      <Link to="" className="scrollToTop">
+        <i className="fas fa-angle-double-up"></i>
+      </Link>
       <Navbar />
       <Banner />
-      <Main games={ games } />
+      <How_works />
+      <Counter />
+      <Winners />
+      <Fearture />
+      <Call_action />
+      <Testimonials />
+      <Profile />
       <Footer />
     </div>
-  );
+  )
 }

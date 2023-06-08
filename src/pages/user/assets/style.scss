@@ -1,0 +1,25 @@
+.tournaments {
+
+  .pager-group {
+    float: right;
+    display: flex;
+    li {
+      border: 1px solid #281D61;
+      margin-right: 18px;
+      text-align: center;
+      padding: 5px 15px;
+      a {
+        color: aqua;
+      }
+      a:hover{
+        color: white;
+      }
+    }
+    .disabled {
+      cursor: default;
+    }
+    .disabled:hover, .disabled a:hover {
+      cursor: not-allowed;
+    }
+  }
+}
