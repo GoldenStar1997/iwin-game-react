@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export default function Profile() {
+export default function Call_to() {
   return (
     <section id="call-action" className="pb-120">
       <div className="overlay">
@@ -10,7 +11,7 @@ export default function Profile() {
               <div className="left-area">
                 <h2 className="title">Build Your Esports Profile</h2>
                 <p>Showcase your achievements, match history and win rate while you build your reputation on Begam.</p>
-                <a href="registration.html" className="cmn-btn-second">Sign Up Free</a>
+                <Link to="" className="cmn-btn-second">Update Your Profile</Link>
               </div>
             </div>
             <div className="col-lg-5 col-md-6">

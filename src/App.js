@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Login from './pages/auth/login'
 import Register from './pages/auth/register'
 import Contact from './pages/user/contact'
-import Error from './pages/error'
 import Profile from './pages/user/profile'
+import Error from './pages/error'
 
 
 import Home from './pages/user/home'

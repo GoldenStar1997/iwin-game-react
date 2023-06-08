@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 
 import Navbar from './components/navbar'
 import Banner from './components/home-banner'
-import How_works from './components/how_works'
+import Howworks from './components/how_works'
 import Counter from './components/counter'
 import Winners from './components/winners'
 import Fearture from './components/fearture'
-import Call_action from './components/call_action'
+import CallAction from './components/call_action'
 import Testimonials from './components/testimonials'
-import Profile from './components/profile'
+import CallTo from './components/call_to'
 import Footer from './components/footer'
 
 export default function home() {
@@ -20,13 +20,13 @@ export default function home() {
       </Link>
       <Navbar />
       <Banner />
-      <How_works />
+      <Howworks />
       <Counter />
       <Winners />
       <Fearture />
-      <Call_action />
+      <CallAction />
       <Testimonials />
-      <Profile />
+      <CallTo />
       <Footer />
     </div>
   )

@@ -1,10 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Banner() {
+export default function Breadcrumb() {
   return (
-    <section id="banner-section" className="inner-banner">
-    
+    <>
       <div className="ani-img">
         <img className="img-1" src="./assets/images/banner-circle-1.png" alt="icon" />
         <img className="img-2" src="./assets/images/banner-circle-2.png" alt="icon" />
@@ -29,6 +28,6 @@ export default function Banner() {
           </div>
         </div>
       </div>
-    </section>
+    </>
   )
 }

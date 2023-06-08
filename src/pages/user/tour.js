@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Navbar from "./components/navbar"
-// import Banner from './components/tour-banner'
+// import Banner from './components/breadcrumb'
 import Tournaments from './components/tournaments'
 import Footer from "./components/footer"
 import axios from 'axios'

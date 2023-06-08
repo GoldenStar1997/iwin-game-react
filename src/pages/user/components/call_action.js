@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Call_action() {
   return (
@@ -18,7 +19,7 @@ export default function Call_action() {
               <div
                 className="col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center justify-content-sm-end align-items-center">
                 <div className="btn-area d-flex justify-content-center justify-content-sm-end align-items-center">
-                  <a href="registration.html" className="cmn-btn">Join Now</a>
+                  <Link to="" className="cmn-btn">Join Now</Link>
                 </div>
                 <img src="./assets/images/call-to-action-right.png" alt="not found"/>
               </div>

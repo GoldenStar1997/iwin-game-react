@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function How_works() {
   return (
@@ -61,7 +62,7 @@ export default function How_works() {
           </div>
           <div className="row d-flex justify-content-center">
             <div className="col-lg-6 text-center">
-              <a href="registration.html" className="cmn-btn">Join Now!</a>
+              <Link to="registration.html" className="cmn-btn">Join Now!</Link>
             </div>
           </div>
         </div>
