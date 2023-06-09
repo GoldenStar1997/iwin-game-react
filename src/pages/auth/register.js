@@ -16,7 +16,14 @@ const Register = () => {
 		await axios
 			.post('http://localhost:4000/auth/register', data)
 			.then((res) => {
-				if (res) navigate('/home');
+				console.log(res)
+				if (res.data.success){
+					
+					navigate('/tour') 
+				} else {
+					alert(res.data.error)
+				}
+
 			})
 			.catch((error) => { throw error; });
 	};
@@ -33,7 +40,6 @@ const Register = () => {
 							<div className="col-sm-5 col">
 								<Link className="back-home" to="/">
 									<img src="./assets/images/left-icon.png" alt="" />
-									Back To iWinGames
 								</Link>
 							</div>
 							<div className="col-sm-5 col">
@@ -52,21 +58,21 @@ const Register = () => {
 										<div className="form-group">
 											<label>Email</label>
 											<input
-												type="text"
-												placeholder="Name"
-												{...register('name', { required: true })}
+												type="Email"
+												placeholder="Email"
+												{...register('email', { required: true })}
 											/>
-											{errors.name && <span> *Name* is mandatory </span>}
+											{errors.name && <span> *Email* is mandatory </span>}
 										</div>
 										<div className="form-group">
 											<label>Username</label>
 											<input
 												type="text"
-												placeholder="Email"
-												{...register('email', { required: true })}
+												placeholder="Username"
+												{...register('name', { required: true })}
 											/>
 											{
-												errors.email && <span> *Email* is mandatory </span>
+												errors.email && <span> *Username* is mandatory </span>
 											}
 										</div>
 										<div className="form-group">

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import logo from '../assets/images/logo.png';
 
 export default function Footer() {
   return (
@@ -10,7 +11,7 @@ export default function Footer() {
             <div className="col-lg-8 col-md-8 d-flex justify-content-md-between justify-content-center align-items-center cus-grid">
               <div className="logo-section">
                 <Link className="site-logo site-title" to="/">
-                  <img src="./assets/images/logo.png" alt="site-logo" />
+                  <img src={logo} alt="site-logo" />
                 </Link>
               </div>
               <ul className="menu-side d-flex align-items-center">

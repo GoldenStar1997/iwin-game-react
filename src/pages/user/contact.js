@@ -19,15 +19,15 @@ export default function contact() {
               <form action="#" method="post">
                 <h5>Leave your message</h5>
                 <div className="form-group">
-                  <label for="name">Name</label>
+                  <label htmlFor="name">Name</label>
                   <input type="text" id="name" placeholder="Enter your Name" />
                 </div>
                 <div className="form-group">
-                  <label for="email">Email</label>
+                  <label htmlFor="email">Email</label>
                   <input type="email" id="email" placeholder="Enter your email" />
                 </div>
                 <div className="form-group">
-                  <label for="email">Message</label>
+                  <label htmlFor="email">Message</label>
                   <textarea rows="6" placeholder="Enter your message"></textarea>
                 </div>
                 <button className="cmn-btn" type="submit">Submit Now</button>

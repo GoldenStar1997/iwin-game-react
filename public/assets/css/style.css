@@ -2445,7 +2445,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Login Regi Start */
 #login-reg{
-    background: url(../images/login-reg-cover.png), rgba(8, 4, 73, 0.5);
+    background: url('../images/login-reg-cover.jpg'), rgba(8, 4, 73, 0.5);
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: bottom;
 }
@@ -2540,7 +2541,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Profile Page Start */
 #banner-section.inner-banner.profile {
-    background-image: url(../images/about-bg-overlay.png), url(../images/inner-banner-bg.png);
+    background-image: url('../images/about-bg-overlay.png'), url('../images/inner-banner-bg.jpg');
     background-repeat: no-repeat, no-repeat;
     background-size: 100%, 100% 100%;
     padding: 240px 0 200px;
@@ -3341,10 +3342,14 @@ body::-webkit-scrollbar-thumb:hover {
 #checkout .custom-control-label::before {
     background-color: transparent;
     border: rgba(255, 255, 255, 0.4) solid 1px;
-
 }
 
 /* Contact Page */
+#contact-section{
+    background: url('../images/login-reg-cover.jpg'), rgba(8, 4, 73, 0.5);
+    background-size: 100% 100%;
+
+}
 #contact-section form{
     background: #4609C3;
     border-radius: 10px;
@@ -3582,16 +3587,6 @@ body::-webkit-scrollbar-thumb:hover {
 }
 #all-trophies .statistics-area .single-item p{
     margin: 16px 0 20px;
-}
-#all-trophies .statistics-area .tournaments-slider {
-    margin-top: 80px;
-}
-#all-trophies .statistics-area .tournaments-slider .top-area h5{
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-#all-trophies .statistics-area .tournaments-slider .top-area{
-    margin-bottom: 30px;
 }
 #all-trophies .statistics-area .single-slide{
     padding: 0 10px;
@@ -3962,10 +3957,6 @@ body::-webkit-scrollbar-thumb:hover {
         width: 65px;
         height: 65px;
         margin-right: 10px;
-    }
-    #all-trophies .statistics-area .tournaments-slider {
-        margin-top: 60px;
-        margin-bottom: 30px;
     }
     #all-trophies .statistics-area .sidebar-area:last-child {
         margin-bottom: 0;

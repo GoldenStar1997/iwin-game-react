@@ -62,7 +62,7 @@ export default function How_works() {
           </div>
           <div className="row d-flex justify-content-center">
             <div className="col-lg-6 text-center">
-              <Link to="registration.html" className="cmn-btn">Join Now!</Link>
+              <Link to="/register" className="cmn-btn">Join Now!</Link>
             </div>
           </div>
         </div>

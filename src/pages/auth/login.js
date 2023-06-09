@@ -54,7 +54,6 @@ function Login() {
               <div className="col-sm-5 col">
                 <Link className="back-home" to="/">
                   <img src="./assets/images/left-icon.png" alt="" />
-                  Back To iWinGames
                 </Link>
               </div>
               <div className="col-sm-5 col">

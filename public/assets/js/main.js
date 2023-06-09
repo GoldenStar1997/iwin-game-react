@@ -71,61 +71,10 @@
     });
 
     // testimonials-carousel
-    $('.testimonials-carousel').slick({
-      infinite: true,
-      autoplay: true,
-      focusOnSelect: false,
-      speed: 1000,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: true,
-      prevArrow: "<button type='button' class='slick-prev pull-left btn-icon'><i class='fas fa-chevron-left' aria-hidden='true'></i></button>",
-      nextArrow: "<button type='button' class='slick-next pull-right btn-icon'><i class='fas fa-chevron-right' aria-hidden='true'></i></button>",
-      dots: true,
-      dotsClass: 'section-dots',
-      customPaging: function (slider, i) {
-        var slideNumber = (i + 1),
-          totalSlides = slider.slideCount;
-        return '<a class="dot" role="button" title="' + slideNumber + ' of ' + totalSlides + '"><span class="string">' + slideNumber + '/' + totalSlides + '</span></a>';
-      }
-    });
+   
 
     // testimonials-slider
-    $('.testimonials-slider').slick({
-      infinite: true,
-      autoplay: true,
-      focusOnSelect: false,
-      speed: 1000,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      arrows: false,
-      prevArrow: "<button type='button' class='slick-prev pull-left btn-icon'><i class='fas fa-chevron-left' aria-hidden='true'></i></button>",
-      nextArrow: "<button type='button' class='slick-next pull-right btn-icon'><i class='fas fa-chevron-right' aria-hidden='true'></i></button>",
-      dots: false,
-      dotsClass: 'section-dots',
-      customPaging: function (slider, i) {
-        var slideNumber = (i + 1),
-          totalSlides = slider.slideCount;
-        return '<a class="dot" role="button" title="' + slideNumber + ' of ' + totalSlides + '"><span class="string">' + slideNumber + '/' + totalSlides + '</span></a>';
-      },
-      responsive: [
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            infinite: true
-          }
-        },
-        {
-          breakpoint: 778,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    });
+   
 
     // Shop Details Slide
     if (document.querySelector('.all-slider') !== null) {
@@ -177,87 +126,6 @@
       $parentElm.find(".qtyValue").val(value);
     });
 
-    // available game carousel
-    $('.available-game-carousel').slick({
-      infinite: true,
-      autoplay: true,
-      focusOnSelect: true,
-      speed: 1000,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      arrows: true,
-      prevArrow: "<button type='button' class='slick-prev pull-left btn-icon'></button>",
-      nextArrow: "<button type='button' class='slick-next pull-right btn-icon'></button>",
-      dots: false,
-      dotsClass: 'section-dots',
-      customPaging: function (slider, i) {
-        var slideNumber = (i + 1),
-          totalSlides = slider.slideCount;
-        return '<a class="dot" role="button" title="' + slideNumber + ' of ' + totalSlides + '"><span class="string">' + slideNumber + '/' + totalSlides + '</span></a>';
-      },
-      responsive: [
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            infinite: true
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            infinite: true
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    });
-
-    // Tournaments Slide
-    $('.tournaments-slide').slick({
-      infinite: true,
-      autoplay: true,
-      focusOnSelect: true,
-      speed: 1000,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      arrows: false,
-      prevArrow: "<button type='button' class='slick-prev pull-left btn-icon'></button>",
-      nextArrow: "<button type='button' class='slick-next pull-right btn-icon'></button>",
-      dots: false,
-      dotsClass: 'section-dots',
-      customPaging: function (slider, i) {
-        var slideNumber = (i + 1),
-          totalSlides = slider.slideCount;
-        return '<a class="dot" role="button" title="' + slideNumber + ' of ' + totalSlides + '"><span class="string">' + slideNumber + '/' + totalSlides + '</span></a>';
-      },
-      responsive: [
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            infinite: true
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    });
 
     /* Magnific Popup */
     if (document.querySelector('.popupvideo') !== null) {

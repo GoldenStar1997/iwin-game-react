@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import Navbar from "./components/navbar"
-// import Banner from './components/breadcrumb'
 import Tournaments from './components/tournaments'
 import Footer from "./components/footer"
 import axios from 'axios'
@@ -26,7 +25,6 @@ export default function Tour() {
   return (
     <div className="home">
       <Navbar />
-      {/* <Banner /> */}
       <Tournaments games={ games }/>
       <Footer />
     </div>

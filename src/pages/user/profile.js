@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
-import Navbar from './components/navbar';
+import Navbar from './components/navbar'
 import Breadcrumb from './components/breadcrumb'
+import Trophies from './components/trophies'
+import Footer from './components/footer'
 
-debugger
 export default function Profile() {
-  const { username } = useParams();
+  
   return (
     <>
       <Navbar />
@@ -18,7 +19,7 @@ export default function Profile() {
               <div className="col-md-6">
                 <div className="profile-area d-flex align-items-center">
                   <div className="photo">
-                    <img src="./assets/images/profile-logo.png" alt="not found" />
+                    <img src="/assets/images/profile-logo.png" alt="not found" />
                   </div>
                   <div className="name-area">
                     <h4>Carter Stanton</h4>
@@ -28,9 +29,9 @@ export default function Profile() {
               </div>
               <div className="col-md-4 d-flex justify-content-center justify-content-md-end">
                 <div className="right d-flex align-items-center">
-                  <Link to="#" className="cmn-btn">Message</Link>
+                  <Link to="" className="cmn-btn">Update</Link>
                   <div className="user-logo d-flex align-items-center justify-content-center">
-                    <img src="./assets/images/user-icon.png" alt="not found" />
+                    <img src="/assets/images/user-icon.png" alt="not found" />
                   </div>
                 </div>
               </div>
@@ -38,6 +39,8 @@ export default function Profile() {
           </div>
         </div>
       </section>
+      <Trophies />
+      <Footer />
     </>
   )
 }

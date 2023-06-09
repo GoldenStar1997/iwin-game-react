@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import logo from '../assets/images/logo.png';
+
+
 const Navbar = () => {
+
+  useEffect(() => {
+    const $ = window.$;
+    const fixed_top = $("#header-section");
+
+    $(window).on("scroll", function () {
+      if ($(window).scrollTop() > 50) {
+        fixed_top.addClass("animated fadeInDown header-fixed");
+      } else {
+        fixed_top.removeClass("animated fadeInDown header-fixed");
+      }
+    });
+  }, [])
+
   return (
     <header id="header-section">
       <div className="overlay">
@@ -9,7 +26,7 @@ const Navbar = () => {
           <div className="row d-flex header-area">
             <div className="logo-section flex-grow-1 d-flex align-items-center">
               <Link className="site-logo site-title" to="/">
-                <img src="./assets/images/logo.png" alt="site-logo" />
+                <img src={logo} alt="site-logo" />
               </Link>
             </div>
             <button className="navbar-toggler ml-auto collapsed" type="button" data-toggle="collapse"
@@ -33,7 +50,7 @@ const Navbar = () => {
                       <li><Link to="">Shop</Link></li>
                       <li><Link to="">Shop Details</Link></li>
                       <li><Link to="">Cart</Link></li>
-                      <li><Link to="">Check Out</Link></li>
+                      <li><Link to="/checkout">Check Out</Link></li>
                       <li><Link to="">Features</Link></li>
                       <li><Link to="/profile/aaa">Profile</Link></li>
                     </ul>

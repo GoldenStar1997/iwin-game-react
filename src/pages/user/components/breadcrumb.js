@@ -1,13 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import bannerCirclePng1 from '../assets/images/banner-circle-1.png'
+import bannerCirclePng2 from '../assets/images/banner-circle-2.png'
+
 export default function Breadcrumb() {
   return (
     <>
       <div className="ani-img">
-        <img className="img-1" src="./assets/images/banner-circle-1.png" alt="icon" />
-        <img className="img-2" src="./assets/images/banner-circle-2.png" alt="icon" />
-        <img className="img-3" src="./assets/images/banner-circle-2.png" alt="icon" />
+        <img className="img-1" src={bannerCirclePng1} alt="icon" />
+        <img className="img-2" src={bannerCirclePng2} alt="icon" />
+        <img className="img-3" src={bannerCirclePng2} alt="icon" />
       </div>
       <div className="banner-content d-flex align-items-center">
         <div className="container">
