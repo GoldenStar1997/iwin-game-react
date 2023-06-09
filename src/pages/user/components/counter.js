@@ -1,9 +1,6 @@
 import React from 'react'
 
 export default function Counter() {
-
-  const $ = window.$;
-  $('.counter').counterUp();
   
   return (
     <section id="counter-section">

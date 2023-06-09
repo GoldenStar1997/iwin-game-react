@@ -5,7 +5,6 @@ import logo from '../assets/images/logo.png';
 
 
 const Navbar = () => {
-
   useEffect(() => {
     const $ = window.$;
     const fixed_top = $("#header-section");
@@ -47,11 +46,11 @@ const Navbar = () => {
                   </li> */}
                   <li className="menu_has_children"><Link to="#0">Dashboard</Link>
                     <ul className="sub-menu">
-                      <li><Link to="">Shop</Link></li>
-                      <li><Link to="">Shop Details</Link></li>
-                      <li><Link to="">Cart</Link></li>
+                      {/* <li><Link to="">Shop</Link></li> */}
+                      {/* <li><Link to="">Shop Details</Link></li> */}
+                      {/* <li><Link to="">Cart</Link></li> */}
+                      {/* <li><Link to="">Features</Link></li> */}
                       <li><Link to="/checkout">Check Out</Link></li>
-                      <li><Link to="">Features</Link></li>
                       <li><Link to="/profile/aaa">Profile</Link></li>
                     </ul>
                   </li>

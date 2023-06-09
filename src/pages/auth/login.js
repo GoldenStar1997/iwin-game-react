@@ -16,15 +16,17 @@ function Login() {
 
   // login
   const onSubmit = async (data) => {
-    await axios.post("http://localhost:4000/auth/login", data)
-      .then(res => {
-        if (res.data.accessToken){
-          navigate('/home')
-        } else {
-          alert(res.data.error)
-        }
-      })
-      .catch(error => { throw error; })
+    // await axios.post("http://localhost:4000/auth/login", data)
+    //   .then(res => {
+    //     if (res.data.accessToken){
+    //       navigate('/home')
+    //     } else {
+    //       alert(res.data.error)
+    //     }
+    //   })
+    //   .catch(error => { throw error; })
+
+    
   };
 
   // google login
