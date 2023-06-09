@@ -3,16 +3,21 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useGoogleLogin } from '@react-oauth/google';
-import "./assets/login.scss";
+
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../reducers/authSlice'
 
 function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const users = useSelector((state) => state.auth.users);
 
   // login
   const onSubmit = async (data) => {
@@ -26,7 +31,16 @@ function Login() {
     //   })
     //   .catch(error => { throw error; })
 
-    
+    if (users[0].name === data.name) {
+      if (users[0].password === data.password) {
+        dispatch(login())
+        navigate('/')
+      } else {
+        alert('Incorrect password')
+      }
+    } else {
+      alert("Not found")
+    }
   };
 
   // google login
@@ -98,7 +112,7 @@ function Login() {
                     <div className="social-area d-flex justify-content-center">
                       <Link to=""><img src="./assets/images/social-icon-1.png" alt="" /></Link>
                       <Link className="twitch" ><img src="./assets/images/social-icon-2.png" alt="" /></Link>
-                      <Link className="google" onClick={ gLogin } ><img src="./assets/images/social-icon-3.png" alt="" /></Link>
+                      <Link className="google" onClick={gLogin} ><img src="./assets/images/social-icon-3.png" alt="" /></Link>
                     </div>
                   </div>
                   <div className="account">

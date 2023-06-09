@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import { useSelector, useDispatch } from 'react-redux';
 import logo from '../assets/images/logo.png';
+import { logout } from '../../../reducers/authSlice';
 
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
+
   useEffect(() => {
     const $ = window.$;
     const fixed_top = $("#header-section");
@@ -70,7 +74,9 @@ const Navbar = () => {
                   <option value="4">NL</option>
                 </select>
               </div> */}
-              <Link to="/login" className="login-btn">Login</Link>
+              <Link to={isLoggedIn ? '/' : '/login'} className="login-btn" onClick={() => isLoggedIn && dispatch(logout())}>
+                {isLoggedIn ? 'Logout' : 'Login'}
+              </Link>
               <Link to="/register" className="cmn-btn">Join Now!</Link>
             </div>
           </div>

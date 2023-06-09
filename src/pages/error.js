@@ -1,7 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { login, logout } from '../reducers/authSlice'
 
 export default function Error() {
+
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
   return (
     <section id="error-section">
       <div className="overlay pb-120 pt-120">
@@ -17,6 +23,11 @@ export default function Error() {
           </div>
         </div>
       </div>
+
+
+      <button onClick={() => isLoggedIn ? dispatch(logout()) : dispatch(login())}>
+        {isLoggedIn ? 'Logout' : 'Login'} 
+      </button>
     </section>
   )
 }
