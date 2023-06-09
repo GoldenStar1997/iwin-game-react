@@ -42,22 +42,15 @@ const Navbar = () => {
                 <ul className="navbar-nav main-menu ml-auto">
                   <li><Link to="/">Home</Link></li>
                   <li><Link to="/tour">Tournaments</Link></li>
-                  {/* <li className="menu_has_children"><Link to="#0" className="active">Tournaments</Link>
-                    <ul className="sub-menu">
-                      <li><Link to="tournaments.html">Tournaments</Link></li>
-                      <li><Link to="tournaments-single.html">Tournaments Single</Link></li>
-                    </ul>
-                  </li> */}
-                  <li className="menu_has_children"><Link to="#0">Dashboard</Link>
-                    <ul className="sub-menu">
-                      {/* <li><Link to="">Shop</Link></li> */}
-                      {/* <li><Link to="">Shop Details</Link></li> */}
-                      {/* <li><Link to="">Cart</Link></li> */}
-                      {/* <li><Link to="">Features</Link></li> */}
-                      <li><Link to="/checkout">Check Out</Link></li>
-                      <li><Link to="/profile/aaa">Profile</Link></li>
-                    </ul>
-                  </li>
+                  {isLoggedIn && (
+                    <li className="menu_has_children">
+                      <Link to="#0">Dashboard</Link>
+                      <ul className="sub-menu">
+                        <li><Link to="/checkout">Check Out</Link></li>
+                        <li><Link to="/profile/aaa">Profile</Link></li>
+                      </ul>
+                    </li>
+                  )}
                   <li><Link to="/contact">Contact</Link></li>
                 </ul>
               </div>
@@ -74,10 +67,9 @@ const Navbar = () => {
                   <option value="4">NL</option>
                 </select>
               </div> */}
-              <Link to={isLoggedIn ? '/' : '/login'} className="login-btn" onClick={() => isLoggedIn && dispatch(logout())}>
+              <Link to={isLoggedIn ? '/' : '/login'} className={isLoggedIn ? 'login-btn' : 'cmn-btn' } onClick={() => isLoggedIn && dispatch(logout())}>
                 {isLoggedIn ? 'Logout' : 'Login'}
               </Link>
-              <Link to="/register" className="cmn-btn">Join Now!</Link>
             </div>
           </div>
         </div>

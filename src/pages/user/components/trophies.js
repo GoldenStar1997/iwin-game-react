@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Trophies() {
 
@@ -68,19 +69,23 @@ export default function Trophies() {
                     </div>
                     <ul className="nav nav-tabs" id="myTab" role="tablist">
                       <li className="nav-item">
-                        <a className="nav-link active" id="fortnite-tab" data-toggle="tab" href="#fortnite" role="tab" aria-controls="fortnite"
-                          aria-selected="true">fortnite</a>
+                        <Link className="nav-link active" id="fortnite-tab" data-toggle="tab" to="#fortnite" role="tab" aria-controls="fortnite"
+                          aria-selected="true">fortnite
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" id="warzone-tab" data-toggle="tab" href="#warzone" role="tab" aria-controls="warzone"
-                          aria-selected="false">warzone</a>
+                        <Link className="nav-link" id="warzone-tab" data-toggle="tab" to="#warzone" role="tab" aria-controls="warzone"
+                          aria-selected="false">warzone
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" id="lofl-tab" data-toggle="tab" href="#lofl" role="tab" aria-controls="lofl"
-                          aria-selected="false">lofl</a>
+                        <Link className="nav-link" id="lofl-tab" data-toggle="tab" to="#lofl" role="tab" aria-controls="lofl"
+                          aria-selected="false">lofl
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" id="dota-tab" data-toggle="tab" href="#dota" role="tab" aria-controls="dota" aria-selected="false">dota</a>
+                        <Link className="nav-link" id="dota-tab" data-toggle="tab" to="#dota" role="tab" aria-controls="dota" aria-selected="false">dota
+                        </Link>
                       </li>
                     </ul>
                     <div className="tab-content" id="myTabContents">
@@ -225,25 +230,29 @@ export default function Trophies() {
                         <p className="text-sm">Last Update: <span>3 days ago</span></p>
                       </div>
                     </div>
-                    <ul className="nav nav-tabs" id="myTab" role="tablist">
+                    <ul className="nav nav-tabs" id="myTab1" role="tablist">
                       <li className="nav-item">
-                        <a className="nav-link active" id="fortnite-tab" data-toggle="tab" href="#fortnite" role="tab" aria-controls="fortnite"
-                          aria-selected="true">fortnite</a>
+                        <Link className="nav-link active" id="cus-tab" data-toggle="tab" to="#cus" role="tab" aria-controls="cus"
+                          aria-selected="true">cus
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" id="warzone-tab" data-toggle="tab" href="#warzone" role="tab" aria-controls="warzone"
-                          aria-selected="false">warzone</a>
+                        <Link className="nav-link" id="war-tab" data-toggle="tab" to="#war" role="tab" aria-controls="war"
+                          aria-selected="false">war
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" id="lofl-tab" data-toggle="tab" href="#lofl" role="tab" aria-controls="lofl"
-                          aria-selected="false">lofl</a>
+                        <Link className="nav-link" id="los-tab" data-toggle="tab" to="#los" role="tab" aria-controls="los"
+                          aria-selected="false">los
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" id="dota-tab" data-toggle="tab" href="#dota" role="tab" aria-controls="dota" aria-selected="false">dota</a>
+                        <Link className="nav-link" id="onlues-tab" data-toggle="tab" to="#onlues" role="tab" aria-controls="onlues" aria-selected="false">onlues
+                        </Link>
                       </li>
                     </ul>
-                    <div className="tab-content" id="myTabContents">
-                      <div className="tab-pane fade show active" id="fortnite" role="tabpanel" aria-labelledby="fortnite-tab">
+                    <div className="tab-content" id="myTabContents1">
+                      <div className="tab-pane fade show active" id="cus" role="tabpanel" aria-labelledby="cus-tab">
                         <div className="row">
                           <div className="col-lg-3 col-md-6">
                             <div className="single-item text-center">
@@ -275,7 +284,7 @@ export default function Trophies() {
                           </div>
                         </div>
                       </div>
-                      <div className="tab-pane fade" id="warzone" role="tabpanel" aria-labelledby="warzone-tab">
+                      <div className="tab-pane fade" id="war" role="tabpanel" aria-labelledby="war-tab">
                         <div className="row">
                           <div className="col-lg-3 col-md-6">
                             <div className="single-item text-center">
@@ -307,7 +316,7 @@ export default function Trophies() {
                           </div>
                         </div>
                       </div>
-                      <div className="tab-pane fade" id="lofl" role="tabpanel" aria-labelledby="lofl-tab">
+                      <div className="tab-pane fade" id="los" role="tabpanel" aria-labelledby="los-tab">
                         <div className="row">
                           <div className="col-lg-3 col-md-6">
                             <div className="single-item text-center">
@@ -339,7 +348,7 @@ export default function Trophies() {
                           </div>
                         </div>
                       </div>
-                      <div className="tab-pane fade" id="dota" role="tabpanel" aria-labelledby="dota-tab">
+                      <div className="tab-pane fade" id="onlues" role="tabpanel" aria-labelledby="onlues-tab">
                         <div className="row">
                           <div className="col-lg-3 col-md-6">
                             <div className="single-item text-center">

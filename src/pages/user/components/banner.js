@@ -15,8 +15,8 @@ export default function Banner() {
                   <p>Compete in Free and Paid entry Tournaments. Transform your
                     games to real money eSports</p>
                   <div className="btn-play d-flex justify-content-center align-items-center">
-                    <Link to="registration.html" className="cmn-btn">Get Started</Link>
-                    <Link to="https://www.youtube.com/watch?v=MJ0zpsWQ_XM" className="mfp-iframe popupvideo">
+                    <Link to="/register" className="cmn-btn">Get Started</Link>
+                    <Link to="" className="mfp-iframe popupvideo">
                       <img src="./assets/images/play-icon.png" alt="play" />
                     </Link>
                   </div>

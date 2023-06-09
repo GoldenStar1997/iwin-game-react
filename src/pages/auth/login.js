@@ -45,20 +45,25 @@ function Login() {
 
   // google login
   const gLogin = useGoogleLogin({
-    onSuccess: async (user) => {
-      await axios.post("http://localhost:4000/auth/google-login", {
-        access_token: user.access_token
-      })
-        .then(res => {
-          if (res.data.success) navigate('/home');
-          else {
-            if (window.confirm(res.data.error + "! Register?"))
-              navigate('/register')
-          }
-        })
-        .catch(error => { throw error; })
-    },
-    onError: (error) => console.log('ReqControl Failed:', error)
+    // onSuccess: async (user) => {
+    //   await axios.post("http://localhost:4000/auth/google-login", {
+    //     access_token: user.access_token
+    //   })
+    //     .then(res => {
+    //       if (res.data.success) navigate('/home');
+    //       else {
+    //         if (window.confirm(res.data.error + "! Register?"))
+    //           navigate('/register')
+    //       }
+    //     })
+    //     .catch(error => { throw error; })
+    // },
+    // onError: (error) => console.log('ReqControl Failed:', error)
+
+    onSuccess: function () {
+      dispatch(login())
+      navigate('/')
+    }
   });
 
   return (
