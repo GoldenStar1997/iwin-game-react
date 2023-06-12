@@ -2,15 +2,22 @@ import React, { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { Link } from 'react-router-dom';
 
-function PaginatedItems({ itemsPerPage, games }) {
+import { useDispatch, useSelector } from 'react-redux';
+
+
+function PaginatedItems({ games }) {
+  console.log(games)
+
+  const gamesfor = useSelector((state)=>state.game.games)
+  const itemsPerPage = 5;
 
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
-  const currentItems = games.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(games.length / itemsPerPage);
+  const currentItems = gamesfor.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(gamesfor.length / itemsPerPage);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % games.length;
+    const newOffset = (event.selected * itemsPerPage) % gamesfor.length;
     setItemOffset(newOffset);
   };
 
@@ -22,7 +29,7 @@ function PaginatedItems({ itemsPerPage, games }) {
           <div className="single-item" key={i}>
             <div className="row">
               <div className="col-lg-3 col-md-3 d-flex align-items-center">
-                <img className="top-img" src={"./assets/images/games/" + item.image} alt="no-found" />
+                <img className="top-img" src={"./assets/images/games/" + item.img} alt="no-found" />
               </div>
               <div className="col-lg-6 col-md-9 d-flex align-items-center">
                 <div className="mid-area">
@@ -65,8 +72,8 @@ function PaginatedItems({ itemsPerPage, games }) {
                 <div className="prize-area text-center">
                   <div className="contain-area">
                     <span className="prize"><img src="./assets/images/price-coin.png" alt="no-found" />prize</span>
-                    <h4 className="dollar">${Math.ceil(item.win)}</h4>
-                    <Link to={"/games/"+ item.alias} className="cmn-btn">Start Tournament</Link>
+                    <h4 className="dollar">$1000</h4>
+                    <Link to={"/games/"+ i} className="cmn-btn">Practice</Link>
                     <p>Top 3 Players Win a Cash Prize</p>
                   </div>
                 </div>

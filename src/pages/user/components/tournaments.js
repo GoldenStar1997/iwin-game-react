@@ -19,7 +19,7 @@ export default function Tournaments({ games }) {
             </div>
           </div>
           <SearchOpt />
-          <PaginatedItems itemsPerPage={5} games={games} />
+          <PaginatedItems games={games} />
         </div>
       </div>
     </section>
