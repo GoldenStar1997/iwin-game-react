@@ -21,7 +21,7 @@ export default function Home() {
       <Link to="" className="scrollToTop">
         <i className="fas fa-angle-double-up"></i>
       </Link>
-      <Navbar />
+      <Navbar/>
       <Banner />
       <Howworks />
       <Counter />

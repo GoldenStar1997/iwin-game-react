@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
 import logo from '../assets/images/logo.png';
-import { logout } from '../../../reducers/authSlice';
+import { useSelector } from 'react-redux';
 
 
-const Navbar = () => {
-  const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
+export default function Navbar () {
 
   useEffect(() => {
     const $ = window.$;
@@ -22,13 +19,15 @@ const Navbar = () => {
     });
   }, [])
 
+  const { affiliate_lvl } = useSelector((state) => state.auth.userInfo);
+
   return (
     <header id="header-section">
       <div className="overlay">
         <div className="container">
           <div className="row d-flex header-area">
             <div className="logo-section flex-grow-1 d-flex align-items-center">
-              <Link className="site-logo site-title" to="/">
+              <Link className="site-logo site-title" to="/home">
                 <img src={logo} alt="site-logo" />
               </Link>
             </div>
@@ -40,42 +39,24 @@ const Navbar = () => {
             <nav className="navbar navbar-expand-lg p-0">
               <div className="navbar-collapse collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav main-menu ml-auto">
-                  <li><Link to="/">Home</Link></li>
                   <li><Link to="/tour">Tournaments</Link></li>
-                  {isLoggedIn && (
-                    <li className="menu_has_children">
-                      <Link to="#0">Dashboard</Link>
-                      <ul className="sub-menu">
-                        <li><Link to="/checkout">Check Out</Link></li>
-                        <li><Link to="/profile/aaa">Profile</Link></li>
-                      </ul>
-                    </li>
-                  )}
+                  <li className="menu_has_children">
+                    <Link to="#0">Dashboard</Link>
+                    <ul className="sub-menu">
+                      <li><Link to="/checkout">Check Out</Link></li>
+                      <li><Link to="/profile">Profile</Link></li>
+                      {affiliate_lvl < 3 ? (
+                        <li><Link to="/referals">Referals</Link></li>
+                      ) : null}
+                    </ul>
+                  </li>
                   <li><Link to="/contact">Contact</Link></li>
                 </ul>
               </div>
             </nav>
-            <div className="right-area header-action d-flex align-items-center">
-              {/* <div className="search-icon">
-                <Link to="#"><img src="./assets/images/search_btn.png" alt="icon" /></Link>
-              </div>
-              <div className="lang d-flex align-items-center">
-                <select>
-                  <option value="1">EN</option>
-                  <option value="2">BN</option>
-                  <option value="3">ES</option>
-                  <option value="4">NL</option>
-                </select>
-              </div> */}
-              <Link to={isLoggedIn ? '/' : '/login'} className={isLoggedIn ? 'login-btn' : 'cmn-btn' } onClick={() => isLoggedIn && dispatch(logout())}>
-                {isLoggedIn ? 'Logout' : 'Login'}
-              </Link>
-            </div>
           </div>
         </div>
       </div>
     </header>
   );
 }
-
-export default Navbar;

@@ -1,10 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { API_URL } from '../../utils/url';
 
-const Register = () => {
+export default function Register ({ invitedBy }) {
+
 	const navigate = useNavigate();
+	const { id } = useParams();
 	const {
 		register,
 		handleSubmit,
@@ -12,18 +15,19 @@ const Register = () => {
 		watch
 	} = useForm();
 
-	const onSubmit = async (data) => {
+	const onSubmit = async (form_data) => {
+		const data = {
+			...form_data,
+			invitedBy: invitedBy ? id:"",
+		}
 		await axios
-			.post('http://localhost:4000/auth/register', data)
+			.post(`${API_URL}/auth/register`, data)
 			.then((res) => {
-				console.log(res)
-				if (res.data.success){
-					
-					navigate('/tour') 
+				if (res.data.success) {
+					navigate('/')
 				} else {
 					alert(res.data.error)
 				}
-
 			})
 			.catch((error) => { throw error; });
 	};
@@ -35,26 +39,12 @@ const Register = () => {
 		<section id="login-reg">
 			<div className="overlay pb-120">
 				<div className="container">
-					<div className="top-area">
-						<div className="row d-flex align-items-center">
-							<div className="col-sm-5 col">
-								<Link className="back-home" to="/">
-									<img src="./assets/images/left-icon.png" alt="" />
-								</Link>
-							</div>
-							<div className="col-sm-5 col">
-								<Link to="#">
-									<img src="./assets/images/logo.png" alt="" />
-								</Link>
-							</div>
-						</div>
-					</div>
 					<div className="row pt-120 d-flex justify-content-center">
 						<div className="col-lg-6">
 							<div className="login-reg-main text-center">
-								<h4>Let's get started</h4>
+								<h4>Sign Up</h4>
 								<div className="form-area">
-									<form className="login-form" onSubmit={handleSubmit(onSubmit)}>
+									<form className="login-form" onSubmit={ handleSubmit(onSubmit) }>
 										<div className="form-group">
 											<label>Email</label>
 											<input
@@ -100,7 +90,7 @@ const Register = () => {
 												errors.confirm_password && <span>{errors.confirm_password.message}</span>
 											}
 										</div>
-										<button type="submit" className="cmn-btn">Sign Up Free</button>
+										<button type="submit" className="cmn-btn">Sign Up as Player</button>
 									</form>
 									<div className="or">
 										<p>OR</p>
@@ -116,7 +106,7 @@ const Register = () => {
 										</div>
 									</div>
 									<div className="account">
-										<p>Already have an account? <Link to="/login">Sign In</Link></p>
+										<p>Already have an account? <Link to="/">Sign In</Link></p>
 									</div>
 								</div>
 							</div>
@@ -127,5 +117,3 @@ const Register = () => {
 		</section >
 	)
 };
-
-export default Register;

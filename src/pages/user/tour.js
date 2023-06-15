@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Navbar from "./components/navbar"
 import Tournaments from './components/tournaments'
-import Footer from "./components/footer"
 import axios from 'axios'
 
 import './assets/style.scss'
@@ -26,7 +25,6 @@ export default function Tour() {
     <div className="home">
       <Navbar />
       <Tournaments games={ games }/>
-      <Footer />
     </div>
   );
 }

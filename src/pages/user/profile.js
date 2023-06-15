@@ -1,18 +1,14 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Navbar from './components/navbar'
-import Breadcrumb from './components/breadcrumb'
 import Trophies from './components/trophies'
-import Footer from './components/footer'
 
 export default function Profile() {
-  
+
   return (
     <>
       <Navbar />
       <section id="banner-section" className="inner-banner profile">
-        <Breadcrumb />
-
         <div className="container">
           <div className="heading-area">
             <div className="row justify-content-between">
@@ -40,7 +36,6 @@ export default function Profile() {
         </div>
       </section>
       <Trophies />
-      <Footer />
     </>
   )
 }

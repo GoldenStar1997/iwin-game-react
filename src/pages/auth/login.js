@@ -3,13 +3,14 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useGoogleLogin } from '@react-oauth/google';
+import { API_URL } from '../../utils/url';
+import { useDispatch } from 'react-redux';
+import { login } from '../../reducers/authSlice';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../reducers/authSlice'
 
-function Login() {
+export default function Login() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const {
     register,
@@ -17,73 +18,40 @@ function Login() {
     formState: { errors },
   } = useForm();
 
-  const users = useSelector((state) => state.auth.users);
-
-  // login
   const onSubmit = async (data) => {
-    // await axios.post("http://localhost:4000/auth/login", data)
-    //   .then(res => {
-    //     if (res.data.accessToken){
-    //       navigate('/home')
-    //     } else {
-    //       alert(res.data.error)
-    //     }
-    //   })
-    //   .catch(error => { throw error; })
-
-    if (users[0].name === data.name) {
-      if (users[0].password === data.password) {
-        dispatch(login())
-        navigate('/')
-      } else {
-        alert('Incorrect password')
-      }
-    } else {
-      alert("Not found")
-    }
+    await axios.post(`${API_URL}/auth/login`, data)
+      .then(res => {
+        if (res.data.accessToken) {
+          dispatch(login(res.data.user))
+          navigate('/home')
+        } else {
+          alert(res.data.error)
+        }
+      })
+      .catch(error => { throw error; })
   };
 
-  // google login
   const gLogin = useGoogleLogin({
-    // onSuccess: async (user) => {
-    //   await axios.post("http://localhost:4000/auth/google-login", {
-    //     access_token: user.access_token
-    //   })
-    //     .then(res => {
-    //       if (res.data.success) navigate('/home');
-    //       else {
-    //         if (window.confirm(res.data.error + "! Register?"))
-    //           navigate('/register')
-    //       }
-    //     })
-    //     .catch(error => { throw error; })
-    // },
-    // onError: (error) => console.log('ReqControl Failed:', error)
-
-    onSuccess: function () {
-      dispatch(login())
-      navigate('/')
-    }
+    onSuccess: async (user) => {
+      await axios.post(`${API_URL}/auth/google-login`, {
+        access_token: user.access_token
+      })
+        .then(res => {
+          if (res.data.success) navigate('/home');
+          else {
+            if (window.confirm(res.data.error + "! Register?"))
+              navigate('/register')
+          }
+        })
+        .catch(error => { throw error; })
+    },
+    onError: (error) => console.log('ReqControl Failed:', error)
   });
 
   return (
     <section id="login-reg">
       <div className="overlay pb-120">
         <div className="container">
-          <div className="top-area">
-            <div className="row d-flex align-items-center">
-              <div className="col-sm-5 col">
-                <Link className="back-home" to="/">
-                  <img src="./assets/images/left-icon.png" alt="" />
-                </Link>
-              </div>
-              <div className="col-sm-5 col">
-                <Link to="#">
-                  <img src="./assets/images/logo.png" alt="" />
-                </Link>
-              </div>
-            </div>
-          </div>
           <div className="row pt-120 d-flex justify-content-center">
             <div className="col-lg-6">
               <div className="login-reg-main text-center">
@@ -132,4 +100,4 @@ function Login() {
     </section>
   );
 }
-export default Login;
+

@@ -1950,7 +1950,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Testimonials Content */
 #tournaments-content {
-    padding-top: 60px;
+    padding-top: 150px;
 }
 #tournaments-content .head-area{
     text-transform: uppercase;
@@ -2323,6 +2323,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 #tournaments-content .prizes .table {
     margin-bottom: 0;
+    text-align: center;
 }
 #tournaments-content .prizes .table thead{
     background: #370898;
@@ -2366,7 +2367,6 @@ body::-webkit-scrollbar-thumb:hover {
     margin-right: 10px;
 }
 #tournaments-content .prizes .table tbody tr td:last-child{
-    text-align: right;
     padding-right: 30px;
 }
 #tournaments-content .matches .single-matches{
