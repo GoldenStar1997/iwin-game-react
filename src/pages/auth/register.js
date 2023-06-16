@@ -15,10 +15,10 @@ export default function Register ({ invitedBy }) {
 		watch
 	} = useForm();
 
-	const onSubmit = async (form_data) => {
+	const onSubmit = async ( form_data ) => {
 		const data = {
 			...form_data,
-			invitedBy: invitedBy ? id:"",
+			affiliate: invitedBy ? id : "",
 		}
 		await axios
 			.post(`${API_URL}/auth/register`, data)

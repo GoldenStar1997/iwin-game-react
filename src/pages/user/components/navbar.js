@@ -19,7 +19,7 @@ export default function Navbar () {
     });
   }, [])
 
-  const { affiliate_lvl } = useSelector((state) => state.auth.userInfo);
+  const { sub_aff } = useSelector((state) => state.auth.userInfo);
 
   return (
     <header id="header-section">
@@ -45,7 +45,7 @@ export default function Navbar () {
                     <ul className="sub-menu">
                       <li><Link to="/checkout">Check Out</Link></li>
                       <li><Link to="/profile">Profile</Link></li>
-                      {affiliate_lvl < 3 ? (
+                      { sub_aff == "" ? (
                         <li><Link to="/referals">Referals</Link></li>
                       ) : null}
                     </ul>
