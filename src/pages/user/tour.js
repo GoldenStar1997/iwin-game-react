@@ -9,7 +9,7 @@ export default function Tour() {
   const [games, setGameList] = useState([]);
 
   const getGameList = async function () {
-    const response = await axios.post("http://localhost:4000/user/games");
+    const response = await axios.post("http://localhost:8483/user/games");
     const { success, data } = response.data;
 
     if (success) setGameList(data);

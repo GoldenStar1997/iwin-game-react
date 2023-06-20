@@ -12,16 +12,14 @@ import Testimonials from './components/testimonials'
 import CallTo from './components/call_to'
 import Footer from './components/footer'
 
-
-
 export default function Home() {
- 
+
   return (
     <>
       <Link to="" className="scrollToTop">
         <i className="fas fa-angle-double-up"></i>
       </Link>
-      <Navbar/>
+      <Navbar />
       <Banner />
       <Howworks />
       <Counter />

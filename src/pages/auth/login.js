@@ -22,6 +22,8 @@ export default function Login() {
     await axios.post(`${API_URL}/auth/login`, data)
       .then(res => {
         if (res.data.accessToken) {
+          localStorage.setItem('token', res.data.accessToken)
+
           dispatch(login(res.data.user))
           navigate('/home')
         } else {

@@ -1,5 +1,5 @@
 import React from 'react'
-import PaginatedItems from './pagination'
+import Games from './games'
 import SearchOpt from './search_opt'
 
 export default function Tournaments({ games }) {
@@ -8,7 +8,7 @@ export default function Tournaments({ games }) {
       <div className="overlay pt-120 pb-120">
         <div className="container wow fadeInUp">
           <SearchOpt />
-          <PaginatedItems games={games} />
+          <Games games={games} />
         </div>
       </div>
     </section>

@@ -6,8 +6,6 @@ import { useSelector } from 'react-redux';
 
 
 function PaginatedItems({ games }) {
-  console.log(games)
-
   const gamesfor = useSelector((state)=>state.game.games)
   const itemsPerPage = 5;
 

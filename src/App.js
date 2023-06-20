@@ -14,23 +14,28 @@ import Game from './pages/user/game'
 import Checkout from './pages/user/checkout'
 
 
+// admin page
+
+import Admin from './pages/admin/home'
+
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register invitedBy={false} />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/tour" element={<Tour />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/referals" element={<Referals />} />
-        <Route path="/games/:id" element={<Game />} />
+        <Route exact path="/" element={<Login />} />
+        <Route exact path="/register" element={<Register invitedBy={false} />} />
+        <Route exact path="/home" element={<Home />} />
+        <Route exact path="/contact" element={<Contact />} />
+        <Route exact path="/checkout" element={<Checkout />} />
+        <Route exact path="/tour" element={<Tour />} />
+        <Route exact path="/profile" element={<Profile />} />
+        <Route exact path="/referals" element={<Referals />} />
+        <Route exact path="/games/:id" element={<Game />} />
+        <Route exact path="/invite/:id" element={<Register invitedBy={true}/>} />
 
-        <Route path="/invite/:id" element={<Register invitedBy={true}/>} />
+        <Route exact path="/admin" element={<Admin />} />
 
-        <Route path="*" element={<Error />} />
+        <Route exact path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
   );
