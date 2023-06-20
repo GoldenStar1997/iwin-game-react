@@ -118,7 +118,7 @@ export default function Referals() {
                         <td style={{ textAlign: "center" }} colSpan={5}>Loading...</td>
                       </tr>
                     ) : (
-                      players ? (
+                      players.length > 0 ? (
                         players.map((player, i) => (
                           <tr className={player.sub_aff === name ? "second" : player.sup_aff === name ? "third" : "first"} key={i}>
                             <td scope="row">{player.name}</td>
