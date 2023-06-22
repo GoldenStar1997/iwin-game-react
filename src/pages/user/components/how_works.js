@@ -18,7 +18,7 @@ export default function How_works() {
               <div className="single-item">
                 <div className="icon-area">
                   <span>1</span>
-                  <img src="./assets/images/how-icon-1.png" alt="not found" />
+                  <img src="./assets/images/icons/how-icon-1.png" alt="not found" />
                 </div>
                 <div className="text-area">
                   <h5>Signup</h5>
@@ -29,7 +29,7 @@ export default function How_works() {
               <div className="single-item">
                 <div className="icon-area">
                   <span>2</span>
-                  <img src="./assets/images/how-icon-2.png" alt="not found" />
+                  <img src="./assets/images/icons/how-icon-2.png" alt="not found" />
                 </div>
                 <div className="text-area">
                   <h5>Deposit</h5>
@@ -40,7 +40,7 @@ export default function How_works() {
               <div className="single-item">
                 <div className="icon-area">
                   <span>3</span>
-                  <img src="./assets/images/how-icon-3.png" alt="not found" />
+                  <img src="./assets/images/icons/how-icon-3.png" alt="not found" />
                 </div>
                 <div className="text-area">
                   <h5>Compete</h5>
@@ -51,7 +51,7 @@ export default function How_works() {
               <div className="single-item">
                 <div className="icon-area">
                   <span>4</span>
-                  <img src="./assets/images/how-icon-4.png" alt="not found" />
+                  <img src="./assets/images/icons/how-icon-4.png" alt="not found" />
                 </div>
                 <div className="text-area">
                   <h5>Get Paid</h5>

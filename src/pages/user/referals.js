@@ -53,7 +53,7 @@ export default function Referals() {
         <div className="single-item">
           <div className="row">
             <div className="col-lg-3 col-md-3 d-flex align-items-center">
-              <img className="top-img" src="./assets/images/game-img-4.png" alt="not found" />
+              <img className="top-img" src="./assets/images/players/user.png" alt="not found" />
             </div>
             <div className="col-lg-9 col-md-12 d-flex align-items-center">
               <div className="mid-area">
@@ -106,10 +106,10 @@ export default function Referals() {
                   <thead>
                     <tr>
                       <th scope="col">Player</th>
-                      <th scope="col">Expenditure</th>
                       <th scope="col">Share</th>
+                      <th scope="col">Expenditure</th>
+                      <th scope="col">Ad Views</th>
                       <th scope="col">Income</th>
-                      <th scope="col">Join date</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -121,11 +121,11 @@ export default function Referals() {
                       players.length > 0 ? (
                         players.map((player, i) => (
                           <tr className={player.sub_aff === name ? "second" : player.sup_aff === name ? "third" : "first"} key={i}>
-                            <td scope="row">{player.name}</td>
-                            <td>{spent}</td>
+                            <td>{player.name}</td>
                             <td>{getShare(player)}%</td>
-                            <td>${(spent * getShare(player)) / 100}</td>
-                            <td>2023.02.13</td>
+                            <td>${spent}</td>
+                            <td>{player.clickCounts} * <span className='small'>$0.01</span></td>
+                            <td>${(spent * getShare(player)) / 100 + player.clickCounts * 0.01 * getShare(player) / 100}</td>
                           </tr>
                         ))
                       ) : (

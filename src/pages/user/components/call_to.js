@@ -16,7 +16,7 @@ export default function Call_to() {
             </div>
             <div className="col-lg-5 col-md-6">
               <div className="right-area">
-                <img src="./assets/images/profile-info.png" alt="not found" />
+                
               </div>
             </div>
           </div>

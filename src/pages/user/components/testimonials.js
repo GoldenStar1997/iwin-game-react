@@ -21,7 +21,7 @@ export default function Testimonials() {
                   <div className="left-area d-flex">
                     <div className="img">
                       <div className="img-area">
-                        <img src="./assets/images/testimonials-user-1.png" alt="not found" />
+                        <img src="./assets/images/testimonials/user-1.png" alt="not found" />
                       </div>
                     </div>
                     <div className="title-area">
@@ -42,7 +42,7 @@ export default function Testimonials() {
                   <div className="left-area d-flex">
                     <div className="img">
                       <div className="img-area">
-                        <img src="./assets/images/testimonials-user-1.png" alt="not found" />
+                        <img src="./assets/images/testimonials/user-1.png" alt="not found" />
                       </div>
                     </div>
                     <div className="title-area">
@@ -63,7 +63,7 @@ export default function Testimonials() {
                   <div className="left-area d-flex">
                     <div className="img">
                       <div className="img-area">
-                        <img src="./assets/images/testimonials-user-1.png" alt="not found" />
+                        <img src="./assets/images/testimonials/user-1.png" alt="not found" />
                       </div>
                     </div>
                     <div className="title-area">

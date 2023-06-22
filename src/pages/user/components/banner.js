@@ -15,9 +15,9 @@ export default function Banner() {
                   <p>Compete in Free and Paid entry Tournaments. Transform your
                     games to real money eSports</p>
                   <div className="btn-play d-flex justify-content-center align-items-center">
-                    <Link to="/register" className="cmn-btn">Get Started</Link>
+                    <Link to="/tour" className="cmn-btn">Get Started</Link>
                     <Link to="" className="mfp-iframe popupvideo">
-                      <img src="./assets/images/play-icon.png" alt="play" />
+                      <img src="./assets/images/icons/play-icon.png" alt="play" />
                     </Link>
                   </div>
                 </div>
@@ -26,7 +26,7 @@ export default function Banner() {
                     <div className="row justify-content-center">
                       <div className="col-lg-6">
                         <div className="bottom-area text-center">
-                          <img src="./assets/images/versus.png" alt="banner-vs" />
+                          <img src="./assets/images/icons/versus.png" alt="banner-vs" />
                         </div>
                       </div>
                     </div>

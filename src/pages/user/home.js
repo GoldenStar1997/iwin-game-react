@@ -4,10 +4,8 @@ import { Link } from 'react-router-dom'
 import Navbar from './components/navbar'
 import Banner from './components/banner'
 import Howworks from './components/how_works'
-import Counter from './components/counter'
 import Winners from './components/winners'
 import Fearture from './components/fearture'
-import CallAction from './components/call_action'
 import Testimonials from './components/testimonials'
 import CallTo from './components/call_to'
 import Footer from './components/footer'
@@ -22,10 +20,8 @@ export default function Home() {
       <Navbar />
       <Banner />
       <Howworks />
-      <Counter />
       <Winners />
       <Fearture />
-      <CallAction />
       <Testimonials />
       <CallTo />
       <Footer />

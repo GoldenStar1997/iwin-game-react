@@ -14,7 +14,6 @@
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
-    user-select: none !important;
 }
 
 body {
@@ -1072,7 +1071,7 @@ body::-webkit-scrollbar-thumb:hover {
     position: relative;
     padding-top: 247px;
     background-color: #280B70;
-    background-image: url(../images/banner-bg.png);
+    background-image: url(../images/bg/banner-bg.png);
     background-size: 117%;
     background-repeat: no-repeat;
     z-index: 0;
@@ -1735,7 +1734,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* footer section */
 #footer-section {
-    background-image: url(../images/footer-bg.png);
+    background-image: url(../images/bg/footer-bg.png);
     background-repeat: no-repeat;
     margin-top: 60px;
 }
@@ -2957,7 +2956,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Login Regi Start */
 #login-reg {
-    background: url('../images/login-reg-cover.jpg'), rgba(8, 4, 73, 0.5);
+    background: url('../images/bg/login-reg-cover.jpg'), rgba(8, 4, 73, 0.5);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -3074,10 +3073,9 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Profile Page Start */
 #banner-section.inner-banner.profile {
-    background-image: url('../images/about-bg-overlay.png'), url('../images/inner-banner-bg.jpg');
+    background-image: url(../images/bg/banner-bg.png);
     background-repeat: no-repeat, no-repeat;
     background-size: 100%, 100% 100%;
-    padding: 240px 0 200px;
     background-position-y: bottom;
     margin-bottom: 170px;
 }
@@ -3161,7 +3159,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Features Page Start */
 #banner-section.inner-banner.profile {
-    background-image: url(../images/about-bg-overlay.png), url(../images/features-banner-bg.png);
+    background-image: url(../images/bg/banner-bg.png);
 }
 
 #banner-section .features-video {
@@ -4038,7 +4036,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Contact Page */
 #contact-section {
-    background: url('../images/login-reg-cover.jpg'), rgba(8, 4, 73, 0.5);
+    background: url(../images/bg/login-reg-cover.jpg), rgba(8, 4, 73, 0.5);
     background-size: 100% 100%;
 
 }
@@ -4432,7 +4430,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Error Page Start */
 #error-section {
-    background-image: url(../images/404.png);
+    background-image: url(../images/icons/404.png);
     background-repeat: no-repeat;
     background-size: 55%;
     background-position: center;

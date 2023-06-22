@@ -38,7 +38,7 @@ export default function Footer() {
             <div className="row d-flex align-items-center justify-content-center">
               <div className="col-lg-12 col-md-6">
                 <div className="left-area text-center">
-                  <p>Copyright © 2021. All Rights Reserved By
+                  <p>Copyright © 2021. All Rights Reserved By &nbsp;
                     <Link to="#">BEGAM</Link>
                   </p>
                 </div>

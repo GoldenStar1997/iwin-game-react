@@ -20,7 +20,7 @@ export default function Winners() {
               <div className="single-item text-center">
                 <div className="img-area">
                   <div className="img-wrapper">
-                    <img src="./assets/images/player-1.png" alt="not found" />
+                    <img src="./assets/images/players/player-1.png" alt="not found" />
                   </div>
                 </div>
                 <Link to="/profile">
@@ -32,7 +32,7 @@ export default function Winners() {
                 </p>
                 <p className="text-sm credit">
                   <span className="text-sm">
-                    <img src="./assets/images/credit-icon.png" alt="not found" /> +20 credits
+                    <img src="./assets/images/icons/credit-icon.png" alt="not found" /> +20 credits
                   </span>
                 </p>
                 <Link to="/profile" className="cmn-btn">View Profile</Link>
@@ -41,11 +41,11 @@ export default function Winners() {
             <div className="col-lg-4 col-md-6">
               <div className="single-item mid-area text-center">
                 <div className="top-level">
-                  <img src="./assets/images/star.png" alt="not found" />
+                  <img src="./assets/images/icons/star.png" alt="not found" />
                 </div>
                 <div className="img-area">
                   <div className="img-wrapper">
-                    <img src="./assets/images/player-2.png" alt="not found" />
+                    <img src="./assets/images/players/player-2.png" alt="not found" />
                   </div>
                 </div>
                 <Link to="/profile/username">
@@ -57,7 +57,7 @@ export default function Winners() {
                 </p>
                 <p className="text-sm credit">
                   <span className="text-sm">
-                    <img src="./assets/images/credit-icon.png" alt="not found" /> +20 credits
+                    <img src="./assets/images/icons/credit-icon.png" alt="not found" /> +20 credits
                   </span>
                 </p>
                 <Link to="/profile/username" className="cmn-btn">View Profile</Link>
@@ -67,7 +67,7 @@ export default function Winners() {
               <div className="single-item text-center">
                 <div className="img-area">
                   <div className="img-wrapper">
-                    <img src="./assets/images/player-3.png" alt="not found" />
+                    <img src="./assets/images/players/player-3.png" alt="not found" />
                   </div>
                 </div>
                 <Link to="/profile/username">
@@ -79,7 +79,7 @@ export default function Winners() {
                 </p>
                 <p className="text-sm credit">
                   <span className="text-sm">
-                    <img src="./assets/images/credit-icon.png" alt="not found" /> +20 credits
+                    <img src="./assets/images/icons/credit-icon.png" alt="not found" /> +20 credits
                   </span>
                 </p>
                 <Link to="/profile/username" className="cmn-btn">View Profile</Link>

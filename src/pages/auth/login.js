@@ -85,9 +85,9 @@ export default function Login() {
                   </div>
                   <div className="reg-with">
                     <div className="social-area d-flex justify-content-center">
-                      <Link to=""><img src="./assets/images/social-icon-1.png" alt="" /></Link>
-                      <Link className="twitch" ><img src="./assets/images/social-icon-2.png" alt="" /></Link>
-                      <Link className="google" onClick={gLogin} ><img src="./assets/images/social-icon-3.png" alt="" /></Link>
+                      <Link to=""><img src="./assets/images/icons/social-icon-1.png" alt="" /></Link>
+                      <Link className="twitch" ><img src="./assets/images/icons/social-icon-2.png" alt="" /></Link>
+                      <Link className="google" onClick={gLogin} ><img src="./assets/images/icons/social-icon-3.png" alt="" /></Link>
                     </div>
                   </div>
                   <div className="account">

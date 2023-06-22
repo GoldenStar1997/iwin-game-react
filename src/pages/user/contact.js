@@ -38,7 +38,7 @@ export default function contact() {
                 <h6 className="head-area">More Information</h6>
                 <div className="single-area d-flex align-items-center">
                   <div className="img-area">
-                    <img src="./assets/images/email-icon.png" alt="not found" />
+                    <img src="./assets/images/icons/email-icon.png" alt="not found" />
                   </div>
                   <div className="right-area">
                     <h6>Email</h6>
@@ -47,7 +47,7 @@ export default function contact() {
                 </div>
                 <div className="single-area d-flex align-items-center">
                   <div className="img-area">
-                    <img src="./assets/images/phone-icon.png" alt="not found" />
+                    <img src="./assets/images/icons/phone-icon.png" alt="not found" />
                   </div>
                   <div className="right-area">
                     <h6>Phone</h6>

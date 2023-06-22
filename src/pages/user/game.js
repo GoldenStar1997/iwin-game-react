@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 export default function Game() {
   const { id } = useParams();
-  const gameURL = useSelector((state)=> state.game.games)[id].url;
+  const gameURL = useSelector((state) => state.game.games)[id].url;
 
   return (
     <div className='gameContainer'>
@@ -15,3 +15,5 @@ export default function Game() {
     </div>
   );
 }
+
+

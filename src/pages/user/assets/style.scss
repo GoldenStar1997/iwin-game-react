@@ -38,7 +38,7 @@
     .first {
       color: #00ACF6;
     }
-    
+
     .second {
       color: #FFAF02;
     }
@@ -55,5 +55,16 @@
   .icon-copy {
     cursor: pointer;
     width: 20px;
+  }
+}
+
+#ads-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  width: 100%;
+  iframe{
+    padding: 0px 46px;
   }
 }
