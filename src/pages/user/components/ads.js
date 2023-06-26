@@ -25,8 +25,8 @@ export default function Ads() {
 
   return (
     <div id='ads-container' className='fadeInUp'>
-      <iframe src={adUrl} onClick={handleAdClick} width="728" height="90" title='banner ads' ></iframe>
-      <iframe src={adUrl} onClick={handleAdClick} width="728" height="90" title='banner ads' ></iframe>
+      <iframe className='fadeInUp' src={adUrl} onClick={handleAdClick} frameBorder='0' scrolling='no' width="728" height="90" title='banner ads'></iframe>
+      <iframe className='fadeInUp' src={adUrl} onClick={handleAdClick} frameBorder='0' scrolling='no' width="728" height="90" title='banner ads'></iframe>
     </div>
   )
 }

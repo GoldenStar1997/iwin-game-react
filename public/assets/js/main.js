@@ -12,6 +12,14 @@
     // nice select
     $('select:not(.ignore)').niceSelect();
 
+    // counter Up
+    if (document.querySelector('.counter') !== null) {
+      $('.counter').counterUp({
+        delay: 10,
+        time: 2000
+      });
+    }
+
     // scroll-to-top
     var ScrollTop = $(".scrollToTop");
     $(window).on('scroll', function () {
@@ -62,11 +70,6 @@
       });
     });
 
-    // testimonials-carousel
-   
-
-    // testimonials-slider
-   
 
     // Shop Details Slide
     if (document.querySelector('.all-slider') !== null) {

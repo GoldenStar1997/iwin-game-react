@@ -11,12 +11,10 @@ import Error from './pages/error'
 import Home from './pages/user/home'
 import Tour from './pages/user/tour'
 import Game from './pages/user/game'
-import Checkout from './pages/user/checkout'
 
 
 // admin page
-
-import Admin from './pages/admin/home'
+import Admin from './pages/admin/'
 
 const App = () => {
   return (
@@ -26,7 +24,6 @@ const App = () => {
         <Route exact path="/register" element={<Register invitedBy={false} />} />
         <Route exact path="/home" element={<Home />} />
         <Route exact path="/contact" element={<Contact />} />
-        <Route exact path="/checkout" element={<Checkout />} />
         <Route exact path="/tour" element={<Tour />} />
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/referals" element={<Referals />} />

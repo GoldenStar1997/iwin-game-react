@@ -34,7 +34,7 @@ function PaginatedItems({ games }) {
                   <h4>{item.name}</h4>
                   <div className="title-bottom d-flex">
                     <div className="time-area bg">
-                      <img src="./assets/images/waitng-icon.png" alt="no-found" />
+                      <img src="./assets/images/icons/waitng-icon.png" alt="no-found" />
                       <span>Starts in</span>
                       <span className="time">10d 2H 18M</span>
                     </div>
@@ -69,7 +69,7 @@ function PaginatedItems({ games }) {
               <div className="col-lg-3 d-flex align-items-center">
                 <div className="prize-area text-center">
                   <div className="contain-area">
-                    <span className="prize"><img src="./assets/images/price-coin.png" alt="no-found" />prize</span>
+                    <span className="prize"><img src="./assets/images/icons/price-coin.png" alt="no-found" />prize</span>
                     <h4 className="dollar">$1000</h4>
                     <Link to={"/games/"+ i} className="cmn-btn">Practice</Link>
                     <p>Top 3 Players Win a Cash Prize</p>

@@ -19,7 +19,9 @@ export default function Navbar() {
     });
   }, [])
 
-  const { sub_aff } = useSelector((state) => state.auth.userInfo);
+  const {
+    sub_aff, status
+  } = useSelector((state) => state.auth.userInfo);
 
   return (
     <>
@@ -44,14 +46,18 @@ export default function Navbar() {
                     <li className="menu_has_children">
                       <Link to="#0">Dashboard</Link>
                       <ul className="sub-menu">
-                        {/* <li><Link to="/checkout">Check Out</Link></li> */}
                         <li><Link to="/profile">Profile</Link></li>
                         {sub_aff === "" ? (
                           <li><Link to="/referals">Referals</Link></li>
                         ) : null}
                       </ul>
                     </li>
-                    <li><Link to="/contact">Contact</Link></li>
+                    {
+                      status === 3 ?
+                        <li><Link to="/admin">Admin</Link></li>
+                        :
+                        <li><Link to="/contact">Contact</Link></li>
+                    }
                   </ul>
                 </div>
               </nav>

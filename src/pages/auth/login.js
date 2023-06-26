@@ -7,7 +7,6 @@ import { API_URL } from '../../utils/url';
 import { useDispatch } from 'react-redux';
 import { login } from '../../reducers/authSlice';
 
-
 export default function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch()
