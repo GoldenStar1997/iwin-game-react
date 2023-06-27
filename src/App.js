@@ -3,18 +3,20 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import Login from './pages/auth/login'
 import Register from './pages/auth/register'
-import Contact from './pages/user/contact'
-import Profile from './pages/user/profile'
-import Referals from './pages/user/referals'
-import Error from './pages/error'
+import Contact from './pages/contact'
+import Profile from './pages/profile'
+import Referals from './pages/referals'
 
-import Home from './pages/user/home'
-import Tour from './pages/user/tour'
-import Game from './pages/user/game'
-
+import Home from './pages/home'
+import Tour from './pages/tour'
+import Play from './pages/play'
+import Dashboard from './pages/dashboard'
 
 // admin page
 import Admin from './pages/admin/'
+
+import Error from './pages/error/404.js'
+import './App.scss'
 
 const App = () => {
   return (
@@ -27,8 +29,9 @@ const App = () => {
         <Route exact path="/tour" element={<Tour />} />
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/referals" element={<Referals />} />
-        <Route exact path="/games/:id" element={<Game />} />
-        <Route exact path="/invite/:id" element={<Register invitedBy={true}/>} />
+        <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact path="/games/:id" element={<Play />} />
+        <Route exact path="/invite/:id" element={<Register invitedBy={true} />} />
 
         <Route exact path="/admin" element={<Admin />} />
 

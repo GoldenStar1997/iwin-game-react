@@ -1,0 +1,40 @@
+#game-container {
+  height: 65vh;
+  overflow: auto;
+
+  .card {
+    border-radius: 0px;
+
+    .card-img {
+      border-top-left-radius: 0px !important;
+      border-top-right-radius: 0px !important;
+      border-bottom-left-radius: 0px !important;
+      border-bottom-right-radius: 0px !important;
+    }
+
+    .card-body {
+      border-bottom-left-radius: 0px !important;
+      border-bottom-right-radius: 0px !important;
+      padding: 1rem 1rem;
+    }
+  }
+}
+
+#layout-menu {
+  a {
+    color: white;
+  }
+}
+
+#ads-container {
+  height: 10vh;
+  
+  .card{
+    height: 10vh;
+  }
+  iframe {
+    width: 100%;
+    height: 10vh;
+  }
+
+}

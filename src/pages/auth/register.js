@@ -4,7 +4,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { API_URL } from '../../utils/url';
 
-export default function Register ({ invitedBy }) {
+
+export default function Register({ invitedBy }) {
 
 	const navigate = useNavigate();
 	const { id } = useParams();
@@ -15,7 +16,7 @@ export default function Register ({ invitedBy }) {
 		watch
 	} = useForm();
 
-	const onSubmit = async ( form_data ) => {
+	const onSubmit = async (form_data) => {
 		const data = {
 			...form_data,
 			affiliate: invitedBy ? id : "",
@@ -36,84 +37,85 @@ export default function Register ({ invitedBy }) {
 	password.current = watch('password', '');
 
 	return (
-		<section id="login-reg">
-			<div className="overlay pb-120">
-				<div className="container">
-					<div className="row pt-120 d-flex justify-content-center">
-						<div className="col-lg-6">
-							<div className="login-reg-main text-center">
-								<h4>Sign Up</h4>
-								<div className="form-area">
-									<form className="login-form" onSubmit={ handleSubmit(onSubmit) }>
-										<div className="form-group">
-											<label>Email</label>
-											<input
-												type="Email"
-												placeholder="Email"
-												{...register('email', { required: true })}
-											/>
-											{errors.name && <span> *Email* is mandatory </span>}
-										</div>
-										<div className="form-group">
-											<label>Username</label>
-											<input
-												type="text"
-												placeholder="Username"
-												{...register('name', { required: true })}
-											/>
-											{
-												errors.email && <span> *Username* is mandatory </span>
-											}
-										</div>
-										<div className="form-group">
-											<label>Password</label>
+		<>
+			<div className="container-xxl">
+				<div className="authentication-wrapper authentication-basic container-p-y">
+					<div className="authentication-inner">
+						<div className="card">
+							<div className="card-body">
+								<div className="app-brand justify-content-center">
+									<a href="index.html" className="app-brand-link gap-2">
+										<span className="app-brand-logo demo">
+											{/* logo image */}
+										</span>
+										<span className="app-brand-text demo text-body fw-bolder">Sneat</span>
+									</a>
+								</div>
+								<h4 className="mb-2">Adventure starts here 🚀</h4>
+								<p className="mb-4">Make your app management easy and fun!</p>
+
+								<form id="formAuthentication" className="mb-3" onSubmit={handleSubmit(onSubmit)}>
+									<div className="mb-3">
+										<label htmlFor="username" className="form-label">Username</label>
+										<input
+											type="text"
+											className="form-control"
+											id="username"
+											name="username"
+											placeholder="Enter your username"
+											autoFocus
+											{...register('name', { required: true })}
+										/>
+									</div>
+									<div className="mb-3">
+										<label htmlFor="email" className="form-label">Email</label>
+										<input
+											type="text"
+											className="form-control"
+											id="email" name="email"
+											placeholder="Enter your email"
+											{...register('email', { required: true })}
+										/>
+									</div>
+									<div className="mb-3 form-password-toggle">
+										<label className="form-label" htmlFor="password">Password</label>
+										<div className="input-group input-group-merge">
 											<input
 												type="password"
-												placeholder="Password"
+												id="password"
+												className="form-control"
+												name="password"
+												placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+												aria-describedby="password"
 												{...register('password', { required: true })}
 											/>
-											{
-												errors.password && <span> *Password* is mandatory </span>
-											}
-										</div>
-										<div className="form-group">
-											<label>Confirm Password</label>
-											<input
-												type="password"
-												placeholder="Confirm Password"
-												{...register('confirm_password', {
-													required: true,
-													validate: (value) => value === password.current || 'Passwords do not match'
-												})}
-											/>
-											{
-												errors.confirm_password && <span>{errors.confirm_password.message}</span>
-											}
-										</div>
-										<button type="submit" className="cmn-btn">Sign Up as Player</button>
-									</form>
-									<div className="or">
-										<p>OR</p>
-									</div>
-									<div className="sign-in">
-										<p>Sign in with your</p>
-									</div>
-									<div className="reg-with">
-										<div className="social-area d-flex justify-content-center">
-											<Link to="#"><img src="./assets/images/social-icon-1.png" alt="" /></Link>
-											<Link className="twitch" to="#"><img src="./assets/images/social-icon-2.png" alt="" /></Link>
-											<Link className="google" to="#"><img src="./assets/images/social-icon-3.png" alt="" /></Link>
+											<span className="input-group-text cursor-pointer"><i className="bx bx-hide"></i></span>
 										</div>
 									</div>
-									<div className="account">
-										<p>Already have an account? <Link to="/">Sign In</Link></p>
+
+									<div className="mb-3">
+										<div className="form-check">
+											<input className="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
+											<label className="form-check-label" htmlFor="terms-conditions">
+												I agree to
+												<a href="#">privacy policy & terms</a>
+											</label>
+										</div>
 									</div>
-								</div>
+									<button className="btn btn-primary d-grid w-100">Sign up</button>
+								</form>
+
+								<p className="text-center">
+									<span>Already have an account?</span>
+									<a href="/">
+										<span>Sign in instead</span>
+									</a>
+								</p>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div >
-		</section >
+			</div>
+		</>
 	)
 };

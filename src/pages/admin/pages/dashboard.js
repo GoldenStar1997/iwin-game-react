@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import $ from 'jquery'
-import { API_URL } from '../../../utils/url';
+import { API_URL } from '../../utils/url';
 
 function Affiliate() {
 
