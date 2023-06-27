@@ -1,64 +1,82 @@
 import React from 'react'
+import { useForm } from "react-hook-form";
+import { API_URL } from '../utils/url';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 
-export default function contact() {
+
+export default function Contact() {
+
+  const {
+    name
+  } = useSelector((state) => state.auth.userInfo);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    await axios.post(`${API_URL}/reports/${name}`, data)
+      .then(res => {
+        if (res.data) {
+          console.log(res.data)
+        } else {
+          alert(res.data.error)
+        }
+      })
+      .catch(error => { throw error; })
+  };
+
+
   return (
-    <section id="contact-section" className="pt-120 pb-120">
-      <div className="overlay">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-10">
-              <div className="section-header text-center">
-                <h5>CONTACT US</h5>
-                <h2 className="title">Get in touch today!</h2>
-                <p>We're here to support your dreams. We're here to help</p>
+    <div className="container-xxl">
+      <div className="authentication-wrapper authentication-basic container-p-y">
+        <div className="authentication-inner">
+          <div className="card">
+            <div className="card-body">
+              <div className="app-brand justify-content-center">
+                <a href="/" className="app-brand-link gap-2">
+                  <span className="app-brand-logo demo">
+                    <img src="./assets/img/logo.svg" alt="" height="100" width="100"/>
+                  </span>
+                  <span className="app-brand-text demo text-body fw-bolder">Contact</span>
+                </a>
               </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-8">
-              <form action="#" method="post">
-                <h5>Leave your message</h5>
-                <div className="form-group">
-                  <label htmlFor="name">Name</label>
-                  <input type="text" id="name" placeholder="Enter your Name" />
+              <h4 className="mb-2"></h4>
+              <p className="mb-4">Thanks for your feedback!</p>
+
+              <form id="feedback-form" className="mb-3" onSubmit={handleSubmit(onSubmit)}>
+                <div className="mb-3">
+                  <label htmlFor="title" className="form-label">Title</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="title"
+                    name="title"
+                    placeholder="Enter your title."
+                    autoFocus
+                    {...register("title", { required: true })}
+                  />
                 </div>
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <input type="email" id="email" placeholder="Enter your email" />
+                <div className="mb-3">
+                  <label htmlFor="text" className="form-label">Text</label>
+                  <textarea
+                    type="text"
+                    className="form-control"
+                    id="text"
+                    name="text"
+                    rows={5}
+                    placeholder="Enter your feedback."
+                    {...register("text", { required: true })}
+                  />
                 </div>
-                <div className="form-group">
-                  <label htmlFor="email">Message</label>
-                  <textarea rows="6" placeholder="Enter your message"></textarea>
-                </div>
-                <button className="cmn-btn" type="submit">Submit Now</button>
               </form>
-            </div>
-            <div className="col-md-4">
-              <div className="right-sidebar">
-                <h6 className="head-area">More Information</h6>
-                <div className="single-area d-flex align-items-center">
-                  <div className="img-area">
-                    <img src="./assets/images/icons/email-icon.png" alt="not found" />
-                  </div>
-                  <div className="right-area">
-                    <h6>Email</h6>
-                    <p className="text-sm">begam@gmail.com</p>
-                  </div>
-                </div>
-                <div className="single-area d-flex align-items-center">
-                  <div className="img-area">
-                    <img src="./assets/images/icons/phone-icon.png" alt="not found" />
-                  </div>
-                  <div className="right-area">
-                    <h6>Phone</h6>
-                    <p className="text-sm">(123) 456 - 7890</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }

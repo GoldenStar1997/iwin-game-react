@@ -47,6 +47,10 @@ export default function Navbar() {
           </div>
           <ul className="navbar-nav flex-row align-items-center ms-auto">
             <li className="nav-item lh-1 me-3">
+              <a className="nav-item nav-link active" href="/home">Home</a>
+            </li>
+
+            <li className="nav-item lh-1 me-3">
               <a className="nav-item nav-link active" href="/tour">Tournaments</a>
             </li>
 
@@ -60,6 +64,12 @@ export default function Navbar() {
               <a className="nav-item nav-link active" href="/dashboard">Dashboard</a>
             </li>
 
+            {status !== 3 ? (
+              <li className="nav-item lh-1 me-3">
+                <a className="nav-item nav-link active" href="/contact">Contact</a>
+              </li>
+            ) : null}
+
             <li className="nav-item navbar-dropdown dropdown-user dropdown">
               <a className="nav-link dropdown-toggle hide-arrow" href="" data-bs-toggle="dropdown">
                 <div className="avatar avatar-online">
@@ -67,7 +77,6 @@ export default function Navbar() {
                 </div>
               </a>
               <ul className="dropdown-menu dropdown-menu-end">
-
                 <li>
                   <a className="dropdown-item" href="#">
                     <div className="d-flex">
@@ -81,7 +90,7 @@ export default function Navbar() {
                         {
                           status === 3 ?
                             <small className="text-muted">Admin</small>
-                            : 
+                            :
                             <small className="text-muted">User</small>
                         }
                       </div>

@@ -8,7 +8,6 @@ import Profile from './pages/profile'
 import Referals from './pages/referals'
 
 import Home from './pages/home'
-import Tour from './pages/tour'
 import Play from './pages/play'
 import Dashboard from './pages/dashboard'
 
@@ -26,7 +25,7 @@ const App = () => {
         <Route exact path="/register" element={<Register invitedBy={false} />} />
         <Route exact path="/home" element={<Home />} />
         <Route exact path="/contact" element={<Contact />} />
-        <Route exact path="/tour" element={<Tour />} />
+        <Route exact path="/tour" element={<Home tour={true} />} />
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/referals" element={<Referals />} />
         <Route exact path="/dashboard" element={<Dashboard />} />

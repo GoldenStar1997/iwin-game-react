@@ -59,12 +59,12 @@ export default function Login() {
                 <div className="app-brand justify-content-center">
                   <a href="/" className="app-brand-link gap-2">
                     <span className="app-brand-logo demo">
-                      {/* logo image */}
+                      <img src="./assets/img/logo.svg" alt="" height="100" width="100"/>
                     </span>
                     <span className="app-brand-text demo text-body fw-bolder">iWinGaming</span>
                   </a>
                 </div>
-                <h4 className="mb-2">Welcome to iWinGaming! 👋</h4>
+                <h4 className="mb-2">Welcome to iWinGaming!</h4>
                 <p className="mb-4">Please sign-in and start the adventure</p>
 
                 <form id="formAuthentication" className="mb-3" onSubmit={handleSubmit(onSubmit)}>

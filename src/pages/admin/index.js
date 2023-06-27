@@ -9,7 +9,7 @@ export default function Admin() {
           <div className="app-brand demo">
             <a href="/" className="app-brand-link">
               <span className="app-brand-logo demo">
-                {/* LOGO IMAGE */}
+                <img src="./assets/img/logo.svg" alt="" height="100" width="100"/>
               </span>
               <span className="app-brand-text demo menu-text fw-bolder ms-2">iWinGaming</span>
             </a>

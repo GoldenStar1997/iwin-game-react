@@ -46,7 +46,7 @@ export default function Register({ invitedBy }) {
 								<div className="app-brand justify-content-center">
 									<a href="index.html" className="app-brand-link gap-2">
 										<span className="app-brand-logo demo">
-											{/* logo image */}
+											<img src="./assets/img/logo.svg" alt="" height="100" width="100"/>
 										</span>
 										<span className="app-brand-text demo text-body fw-bolder">Sneat</span>
 									</a>

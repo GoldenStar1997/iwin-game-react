@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function chat() {
+export default function Chatbox() {
   return (
     <>
       <div className="col-lg-4 col-md-6">
