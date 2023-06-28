@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 
 export default function Navbar() {
@@ -28,9 +29,9 @@ export default function Navbar() {
         id="layout-navbar"
       >
         <div className="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
-          <a className="nav-item nav-link px-0 me-xl-4" href="#">
+          <Link className="nav-item nav-link px-0 me-xl-4" to="#">
             <i className="bx bx-menu bx-sm"></i>
-          </a>
+          </Link>
         </div>
 
         <div className="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
@@ -47,38 +48,38 @@ export default function Navbar() {
           </div>
           <ul className="navbar-nav flex-row align-items-center ms-auto">
             <li className="nav-item lh-1 me-3">
-              <a className="nav-item nav-link active" href="/home">Home</a>
+              <Link className="nav-item nav-link active" to="/home">Home</Link>
             </li>
 
             <li className="nav-item lh-1 me-3">
-              <a className="nav-item nav-link active" href="/tour">Tournaments</a>
+              <Link className="nav-item nav-link active" to="/tour">Tournaments</Link>
             </li>
 
             {sub_aff === "" ? (
               <li className="nav-item lh-1 me-3">
-                <a className="nav-item nav-link active" href="/referals">Referals</a>
+                <Link className="nav-item nav-link active" to="/referals">Referals</Link>
               </li>
             ) : null}
 
             <li className="nav-item lh-1 me-3">
-              <a className="nav-item nav-link active" href="/dashboard">Dashboard</a>
+              <Link className="nav-item nav-link active" to="/dashboard">Dashboard</Link>
             </li>
 
             {status !== 3 ? (
               <li className="nav-item lh-1 me-3">
-                <a className="nav-item nav-link active" href="/contact">Contact</a>
+                <Link className="nav-item nav-link active" to="/contact">Contact</Link>
               </li>
             ) : null}
 
             <li className="nav-item navbar-dropdown dropdown-user dropdown">
-              <a className="nav-link dropdown-toggle hide-arrow" href="" data-bs-toggle="dropdown">
+              <Link className="nav-link dropdown-toggle hide-arrow" to="" data-bs-toggle="dropdown">
                 <div className="avatar avatar-online">
                   <img src="../assets/img/avatars/1.png" alt="not found" className="w-px-40 h-auto rounded-circle" />
                 </div>
-              </a>
+              </Link>
               <ul className="dropdown-menu dropdown-menu-end">
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to="#">
                     <div className="d-flex">
                       <div className="flex-shrink-0 me-3">
                         <div className="avatar avatar-online">
@@ -95,7 +96,7 @@ export default function Navbar() {
                         }
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
@@ -103,26 +104,26 @@ export default function Navbar() {
                 </li>
 
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to="#">
                     <i className="bx bx-cog me-2"></i>
                     <span className="align-middle">Settings</span>
-                  </a>
+                  </Link>
                 </li>
 
                 {
                   status === 3 ?
                     <li>
-                      <a href="/admin" className="dropdown-item">
+                      <Link to="/admin" className="dropdown-item">
                         <i className="bx bx-user me-2"></i>
                         <span className="align-middle">Admin Page</span>
-                      </a>
+                      </Link>
                     </li>
                     :
                     <li>
-                      <a className="dropdown-item" href="/profile">
+                      <Link className="dropdown-item" to="/profile">
                         <i className="bx bx-user me-2"></i>
                         <span className="align-middle">My Profile</span>
-                      </a>
+                      </Link>
                     </li>
                 }
 
@@ -130,10 +131,10 @@ export default function Navbar() {
                   <div className="dropdown-divider"></div>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/">
+                  <Link className="dropdown-item" to="/">
                     <i className="bx bx-power-off me-2"></i>
                     <span className="align-middle">Log Out</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>

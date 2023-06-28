@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   info: {
-    class: "bg-info",
+    className: "bg-info",
     time: "Just Now",
     context: ""
   }

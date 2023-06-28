@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { API_URL } from '../../../utils/url'
+import { Link } from 'react-router-dom'
 
 
 export default function Users() {
@@ -29,7 +30,7 @@ export default function Users() {
       <h5 className="card-header">Users: {users.length}</h5>
       <div className="table-responsive text-nowrap">
         <table className="table">
-          <thead class="table-dark">
+          <thead className="table-dark">
             <tr>
               <th>Name</th>
               <th>Affilate</th>
@@ -75,8 +76,8 @@ export default function Users() {
                             <i className="bx bx-dots-vertical-rounded"></i>
                           </button>
                           <div className="dropdown-menu">
-                            <a className="dropdown-item" href=""><i className="bx bx-edit-alt me-1"></i> Edit</a>
-                            <a className="dropdown-item" href=""><i className="bx bx-trash me-1"></i> Delete</a>
+                            <Link className="dropdown-item" to=""><i className="bx bx-edit-alt me-1"></i> Edit</Link>
+                            <Link className="dropdown-item" to=""><i className="bx bx-trash me-1"></i> Delete</Link>
                           </div>
                         </div>
                       </td>

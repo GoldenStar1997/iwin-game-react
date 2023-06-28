@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function Games() {
   const games = useSelector((state) => state.game.gameList);
@@ -16,16 +17,16 @@ function Games() {
             data-bs-offset="0,4"
             data-bs-placement="left"
             data-bs-html="true"
-            title="<i class='bx bx-dollar bx-xs'></i> <span>Tooltip on left</span>"
+            title="<i className='bx bx-dollar bx-xs'></i> <span>Tooltip on left</span>"
           >
-            <a href={'/games/' + item.name} className="card bg-dark border-0 text-white">
-              <img className="card-img" src={"./assets/img/games/" + item.image} alt="Card image" height={150} />
+            <Link to={'/games/' + item.name} className="card bg-dark border-0 text-white">
+              <img className="card-img" src={"./assets/img/games/" + item.image} alt="Card" height={150} />
               <div className="card-body">
                 <p className="card-text">
                   {item.name}
                 </p>
               </div>
-            </a>
+            </Link>
           </div >
         ))
       }

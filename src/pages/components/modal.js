@@ -14,7 +14,7 @@ export default function Modal() {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">Invite Modal</h5>
+              <h5 className="modal-title">Invite Person</h5>
               <button
                 type="button"
                 className="btn-close"

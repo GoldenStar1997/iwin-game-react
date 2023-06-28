@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { API_URL } from '../utils/url';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 
 
 export default function Contact() {
@@ -14,7 +15,6 @@ export default function Contact() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -37,14 +37,14 @@ export default function Contact() {
           <div className="card">
             <div className="card-body">
               <div className="app-brand justify-content-center">
-                <a href="/" className="app-brand-link gap-2">
+                <Link to="/" className="app-brand-link gap-2">
                   <span className="app-brand-logo demo">
-                    <img src="./assets/img/logo.svg" alt="" height="100" width="100"/>
+                    <img src="./assets/img/logo.svg" alt="" height="100" width="100" />
                   </span>
                   <span className="app-brand-text demo text-body fw-bolder">Contact</span>
-                </a>
+                </Link>
               </div>
-              <h4 className="mb-2"></h4>
+              <h4 className="mb-2">Contact Us</h4>
               <p className="mb-4">Thanks for your feedback!</p>
 
               <form id="feedback-form" className="mb-3" onSubmit={handleSubmit(onSubmit)}>
@@ -71,6 +71,9 @@ export default function Contact() {
                     placeholder="Enter your feedback."
                     {...register("text", { required: true })}
                   />
+                </div>
+                <div className="mb-3">
+                  <button className="btn btn-primary d-grid w-100" type="submit">Send</button>
                 </div>
               </form>
             </div>

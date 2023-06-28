@@ -35,8 +35,8 @@ export default function Ads() {
 
       </div>
       <div className='col-md-2'>
-        <div class="card">
-          <img class="card-img" src="./assets/img/elements/result-img-3.png" alt="Card image" style={{ height: "10vh" }} />
+        <div className="card">
+          <img className="card-img" src="./assets/img/elements/result-img-3.png" alt="Card" style={{ height: "10vh" }} />
         </div>  
       </div>
       <div className='col-md-5'>

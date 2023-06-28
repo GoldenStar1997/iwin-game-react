@@ -6,6 +6,7 @@ import { useGoogleLogin } from '@react-oauth/google';
 import { API_URL } from '../../utils/url';
 import { useDispatch } from 'react-redux';
 import { login } from '../../reducers/authSlice';
+import { Link } from 'react-router-dom'
 
 export default function Login() {
   const navigate = useNavigate();
@@ -57,12 +58,12 @@ export default function Login() {
             <div className="card">
               <div className="card-body">
                 <div className="app-brand justify-content-center">
-                  <a href="/" className="app-brand-link gap-2">
+                  <Link to="/" className="app-brand-link gap-2">
                     <span className="app-brand-logo demo">
                       <img src="./assets/img/logo.svg" alt="" height="100" width="100"/>
                     </span>
                     <span className="app-brand-text demo text-body fw-bolder">iWinGaming</span>
-                  </a>
+                  </Link>
                 </div>
                 <h4 className="mb-2">Welcome to iWinGaming!</h4>
                 <p className="mb-4">Please sign-in and start the adventure</p>
@@ -83,9 +84,9 @@ export default function Login() {
                   <div className="mb-3 form-password-toggle">
                     <div className="d-flex justify-content-between">
                       <label className="form-label" htmlFor="password">Password</label>
-                      <a href="auth-forgot-password-basic.html">
+                      <Link to="auth-forgot-password-basic.html">
                         <small>Forgot Password?</small>
-                      </a>
+                      </Link>
                     </div>
                     <div className="input-group input-group-merge">
                       <input
@@ -113,9 +114,9 @@ export default function Login() {
 
                 <p className="text-center">
                   <span>New on our platform?</span>
-                  <a href="/register">
+                  <Link to="/register">
                     <span>Create an account</span>
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>

@@ -9,46 +9,48 @@ import { setInfo } from '../reducers/alertSlice'
 
 export default function Referals() {
 
-  const dispatch = useDispatch()
+  const
+    dispatch = useDispatch(),
+    {
+      name,
+      aff_link,
+      affiliate,
+      sup_aff,
+      sub_aff
+    } = useSelector((state) => state.auth.userInfo),
 
-  const {
-    name,
-    aff_link,
-    affiliate,
-    sup_aff,
-    sub_aff
-  } = useSelector((state) => state.auth.userInfo);
-
-  const [players, setPlayers] = useState([]);
-  const [affShare, setAffShare] = useState({});
-  const [loading, setLoading] = useState(true);
-
-  const getPlayers = async () => {
-    setLoading(true);
-
-    await axios
-      .post(`${API_URL}/user/getPlayers`, {
-        name: name
-      })
-      .then(res => {
-        setPlayers(res.data.results)
-      })
-      .catch(error => { throw error; })
-
-    setLoading(false);
-  }
-
-  const getAffShare = async function () {
-    const response = await axios
-      .post(`${API_URL}/user/getAffShare`);
-
-    const { success, data } = response.data;
-    if (success) setAffShare(data[0]);
-  };
+    [players, setPlayers] = useState([]),
+    [affShare, setAffShare] = useState({}),
+    [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const
+      getPlayers = async () => {
+        setLoading(true);
+
+        await axios
+          .post(`${API_URL}/user/getPlayers`, {
+            name: name
+          })
+          .then(res => {
+            setPlayers(res.data.results)
+          })
+          .catch(error => { throw error; })
+
+        setLoading(false);
+      },
+
+      getAffShare = async function () {
+        const response = await axios
+          .post(`${API_URL}/user/getAffShare`);
+
+        const { success, data } = response.data;
+        if (success) setAffShare(data[0]);
+      };
+
     getPlayers();
-    getAffShare()
+    getAffShare();
+
   }, [])
 
   const
@@ -56,14 +58,14 @@ export default function Referals() {
     share =
       affiliate === "" ? affShare.aff_shr
         : sup_aff === "" ? affShare.sup_shr
-          : sub_aff === "" ? affShare.sub_shr
-            : 0,
+        : sub_aff === "" ? affShare.sub_shr
+        : 0,
 
     level =
       affiliate === "" ? 1
         : sup_aff === "" ? 2
-          : sub_aff === "" ? 3
-            : 0,
+        : sub_aff === "" ? 3
+        : 0,
 
     pNum = players.filter(ele => ele.affiliate === name).length,
     supPNum = players.filter(ele => ele.sup_aff === name).length,
@@ -73,8 +75,8 @@ export default function Referals() {
       const shared =
         p.affiliate === name ? share
           : p.sup_aff === name ? affShare.aff_shr - affShare.sup_shr
-            : p.sub_aff === name ? affShare.sup_shr - affShare.sub_shr
-              : 0;
+          : p.sub_aff === name ? affShare.sup_shr - affShare.sub_shr
+          : 0;
 
       return shared;
     },
@@ -84,7 +86,7 @@ export default function Referals() {
         .writeText(aff_link)
         .then(() => {
           dispatch(setInfo({
-            class: "bg-info",
+            className: "bg-info",
             time: "just now",
             context: "Copied to Clipboard!"
           }))
@@ -210,7 +212,7 @@ export default function Referals() {
                       Invite People
                     </button>
                   </div>
-                  <h5>{"Total Players: " + players.length}</h5>
+                  <h5>Total Players: {players.length}</h5>
                 </div>
                 <div className="table-responsive text-nowrap">
                   <table className="table">
@@ -228,62 +230,68 @@ export default function Referals() {
                       {
                         loading ? (
                           <tr>
-                            <td style={{ textAlign: "center" }} colSpan={6}>Loading...</td>
+                            <td style={{ textAlign: "center" }} colSpan={5}>Loading...</td>
                           </tr>
                         ) : (
-                          players.map((player, i) =>
-                            <tr key={i}>
-                              <td>
-                                <i className="fab fa-angular fa-lg text-danger me-3"></i>
-                                <strong>{player.name}</strong>
-                              </td>
-                              <td>{getShare(player)}%</td>
-                              <td>${spent}</td>
-                              <td>{player.clickCounts} * <span className='small'>$0.01</span></td>
-                              <td>${(spent * getShare(player)) / 100 + player.clickCounts * 0.01 * getShare(player) / 100}</td>
-                              <td>
-                                <ul className="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                                  {
-                                    player.sub_aff ?
-                                      <li
-                                        data-bs-toggle="tooltip"
-                                        data-popup="tooltip-custom"
-                                        data-bs-placement="top"
-                                        className="avatar avatar-xs pull-up"
-                                        title={player.sub_aff === name ? "You" : player.sub_aff}
-                                      >
-                                        <img src="../assets/img/avatars/7.png" alt="Avatar" className="rounded-circle" />
-                                      </li>
-                                      : null
-                                  }
-                                  {
-                                    player.sup_aff ?
-                                      <li
-                                        data-bs-toggle="tooltip"
-                                        data-popup="tooltip-custom"
-                                        data-bs-placement="top"
-                                        className="avatar avatar-xs pull-up"
-                                        title={player.sup_aff === name ? "You" : player.sup_aff}
-                                      >
-                                        <img src="../assets/img/avatars/7.png" alt="Avatar" className="rounded-circle" />
-                                      </li>
-                                      : null
-                                  }
-                                  {
-                                    player.affiliate ?
-                                      <li
-                                        data-bs-toggle="tooltip"
-                                        data-popup="tooltip-custom"
-                                        data-bs-placement="top"
-                                        className="avatar avatar-xs pull-up"
-                                        title={player.affiliate === name ? "You" : player.affiliate}
-                                      >
-                                        <img src="../assets/img/avatars/7.png" alt="Avatar" className="rounded-circle" />
-                                      </li>
-                                      : null
-                                  }
-                                </ul>
-                              </td>
+                          players.length > 0 ? (
+                            players.map((player, i) => (
+                              <tr key={i}>
+                                <td>
+                                  <i className="fab fa-angular fa-lg text-danger me-3"></i>
+                                  <strong>{player.name}</strong>
+                                </td>
+                                <td>{getShare(player)}%</td>
+                                <td>${spent}</td>
+                                <td>{player.clickCounts} * <span className='small'>$0.01</span></td>
+                                <td>${(spent * getShare(player)) / 100 + player.clickCounts * 0.01 * getShare(player) / 100}</td>
+                                <td>
+                                  <ul className="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                    {
+                                      player.sub_aff ?
+                                        <li
+                                          data-bs-toggle="tooltip"
+                                          data-popup="tooltip-custom"
+                                          data-bs-placement="top"
+                                          className="avatar avatar-xs pull-up"
+                                          title={player.sub_aff === name ? "You" : player.sub_aff}
+                                        >
+                                          <img src="../assets/img/avatars/7.png" alt="Avatar" className="rounded-circle" />
+                                        </li>
+                                        : null
+                                    }
+                                    {
+                                      player.sup_aff ?
+                                        <li
+                                          data-bs-toggle="tooltip"
+                                          data-popup="tooltip-custom"
+                                          data-bs-placement="top"
+                                          className="avatar avatar-xs pull-up"
+                                          title={player.sup_aff === name ? "You" : player.sup_aff}
+                                        >
+                                          <img src="../assets/img/avatars/7.png" alt="Avatar" className="rounded-circle" />
+                                        </li>
+                                        : null
+                                    }
+                                    {
+                                      player.affiliate ?
+                                        <li
+                                          data-bs-toggle="tooltip"
+                                          data-popup="tooltip-custom"
+                                          data-bs-placement="top"
+                                          className="avatar avatar-xs pull-up"
+                                          title={player.affiliate === name ? "You" : player.affiliate}
+                                        >
+                                          <img src="../assets/img/avatars/7.png" alt="Avatar" className="rounded-circle" />
+                                        </li>
+                                        : null
+                                    }
+                                  </ul>
+                                </td>
+                              </tr>
+                            ))
+                          ) : (
+                            <tr>
+                              <td style={{ textAlign: "center" }} colSpan={6}>No User found</td>
                             </tr>
                           )
                         )

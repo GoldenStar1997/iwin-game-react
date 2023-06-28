@@ -44,47 +44,42 @@ export default function Register({ invitedBy }) {
 						<div className="card">
 							<div className="card-body">
 								<div className="app-brand justify-content-center">
-									<a href="index.html" className="app-brand-link gap-2">
+									<Link to="/" className="app-brand-link gap-2">
 										<span className="app-brand-logo demo">
-											<img src="./assets/img/logo.svg" alt="" height="100" width="100"/>
+											<img src="../assets/img/logo.svg" alt="" height="100" width="100" />
 										</span>
 										<span className="app-brand-text demo text-body fw-bolder">Sneat</span>
-									</a>
+									</Link>
 								</div>
-								<h4 className="mb-2">Adventure starts here 🚀</h4>
-								<p className="mb-4">Make your app management easy and fun!</p>
+								<h4 className="mb-2">Register</h4>
+								<p className="mb-4">Play the Advanture!</p>
 
-								<form id="formAuthentication" className="mb-3" onSubmit={handleSubmit(onSubmit)}>
+								<form className="mb-3" onSubmit={handleSubmit(onSubmit)}>
 									<div className="mb-3">
-										<label htmlFor="username" className="form-label">Username</label>
+										<label className="form-label">Username</label>	
 										<input
 											type="text"
 											className="form-control"
-											id="username"
-											name="username"
 											placeholder="Enter your username"
 											autoFocus
 											{...register('name', { required: true })}
 										/>
 									</div>
 									<div className="mb-3">
-										<label htmlFor="email" className="form-label">Email</label>
+										<label className="form-label">Email</label>
 										<input
-											type="text"
+											type="email"
 											className="form-control"
-											id="email" name="email"
 											placeholder="Enter your email"
 											{...register('email', { required: true })}
 										/>
 									</div>
 									<div className="mb-3 form-password-toggle">
-										<label className="form-label" htmlFor="password">Password</label>
+										<label className="form-label">Password</label>
 										<div className="input-group input-group-merge">
 											<input
 												type="password"
-												id="password"
 												className="form-control"
-												name="password"
 												placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
 												aria-describedby="password"
 												{...register('password', { required: true })}
@@ -95,10 +90,13 @@ export default function Register({ invitedBy }) {
 
 									<div className="mb-3">
 										<div className="form-check">
-											<input className="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
-											<label className="form-check-label" htmlFor="terms-conditions">
+											<input
+												className="form-check-input"
+												type="checkbox"
+											/>
+											<label className="form-check-label">
 												I agree to
-												<a href="#">privacy policy & terms</a>
+												<Link to="">privacy policy & terms</Link>
 											</label>
 										</div>
 									</div>
@@ -107,15 +105,15 @@ export default function Register({ invitedBy }) {
 
 								<p className="text-center">
 									<span>Already have an account?</span>
-									<a href="/">
+									<Link to="/">
 										<span>Sign in instead</span>
-									</a>
+									</Link>
 								</p>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+				</div >
+			</div >
 		</>
 	)
 };
