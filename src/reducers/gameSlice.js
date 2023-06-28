@@ -3,21 +3,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  games: []
+  gameList: []
 };
 
 const gameSlice = createSlice({
   name: 'game',
   initialState,
+  
   reducers: {
-    login: (state) => {
-      state.isLoggedIn = true;
-    },
-    logout: (state) => {
-      state.isLoggedIn = false;
-    },
+    setGameList: (state, actions) => {
+      state.gameList = actions.payload
+    }
   },
 });
 
-export const { login, logout } = gameSlice.actions;
+export const { login, logout, setGameList } = gameSlice.actions;
 export default gameSlice.reducer;

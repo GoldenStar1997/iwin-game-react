@@ -1,7 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-function Games({ games }) {
-  
+function Games() {
+  const games = useSelector((state) => state.game.gameList);
+
   return (
     <>
       {
@@ -16,14 +18,14 @@ function Games({ games }) {
             data-bs-html="true"
             title="<i class='bx bx-dollar bx-xs'></i> <span>Tooltip on left</span>"
           >
-            <div className="card bg-dark border-0 text-white">
+            <a href={'/games/' + item.name} className="card bg-dark border-0 text-white">
               <img className="card-img" src={"./assets/img/games/" + item.image} alt="Card image" height={150} />
               <div className="card-body">
                 <p className="card-text">
                   {item.name}
                 </p>
               </div>
-            </div>
+            </a>
           </div >
         ))
       }

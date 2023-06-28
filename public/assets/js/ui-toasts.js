@@ -1,17 +1,9 @@
-/**
- * UI Toasts
- */
 
-'use strict';
-
-(function () {
-  // Bootstrap toasts example
-  // --------------------------------------------------------------------
+$(document).ready(function () {
   const toastPlacementExample = document.querySelector('.toast-placement-ex'),
     toastPlacementBtn = document.querySelector('#showToastPlacement');
   let selectedType, selectedPlacement, toastPlacement;
 
-  // Dispose toast when open another
   function toastDispose(toast) {
     if (toast && toast._element !== null) {
       if (toastPlacementExample) {
@@ -21,14 +13,13 @@
       toast.dispose();
     }
   }
-  // Placement Button click
   if (toastPlacementBtn) {
     toastPlacementBtn.onclick = function () {
       if (toastPlacement) {
         toastDispose(toastPlacement);
       }
-      selectedType = document.querySelector('#selectTypeOpt').value;
-      selectedPlacement = document.querySelector('#selectPlacement').value.split(' ');
+      selectedType = "bg-info";
+      selectedPlacement = ["top-0", "end-0"];
 
       toastPlacementExample.classList.add(selectedType);
       DOMTokenList.prototype.add.apply(toastPlacementExample.classList, selectedPlacement);
@@ -36,4 +27,4 @@
       toastPlacement.show();
     };
   }
-})();
+})

@@ -28,10 +28,11 @@
 
 #ads-container {
   height: 10vh;
-  
-  .card{
+
+  .card {
     height: 10vh;
   }
+
   iframe {
     width: 100%;
     height: 10vh;
@@ -46,6 +47,14 @@
   z-index: 999999;
   box-shadow: 0 1px 20px 1px #4f4f4f;
 }
+
 .chat-btn .btn-chat-btn:hover {
   box-shadow: none;
+}
+
+.nowrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }

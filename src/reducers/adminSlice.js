@@ -3,7 +3,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  curPage: "dashboard",
+  selectedItem: "dashboard",
 };
 
 const adminSlice = createSlice({
@@ -11,7 +11,7 @@ const adminSlice = createSlice({
   initialState,
   reducers: {
     setPage: (state, action) => {
-      state.curPage = action.payload
+      state.selectedItem = action.payload
     }
   },
 });

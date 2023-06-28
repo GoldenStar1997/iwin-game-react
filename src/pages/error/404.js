@@ -1,12 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux';
-import { login, logout } from '../../reducers/authSlice'
 
 export default function Error() {
-
-  const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   return (
     <div className="content-wrapper">

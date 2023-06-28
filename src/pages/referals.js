@@ -1,63 +1,104 @@
 import React, { useEffect, useState } from 'react'
 import { API_URL } from '../utils/url'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import Navbar from './components/navbar'
 import Modal from './components/modal'
+import Toast from './components/toast'
+import { setInfo } from '../reducers/alertSlice'
 
 export default function Referals() {
+
+  const dispatch = useDispatch()
+
   const {
-    name, aff_link, affiliate, sup_aff, sub_aff
+    name,
+    aff_link,
+    affiliate,
+    sup_aff,
+    sub_aff
   } = useSelector((state) => state.auth.userInfo);
 
   const [players, setPlayers] = useState([]);
+  const [affShare, setAffShare] = useState({});
   const [loading, setLoading] = useState(true);
 
   const getPlayers = async () => {
     setLoading(true);
-    await axios.post(`${API_URL}/user/getPlayers`, {
-      name: name
-    }).then(res => {
-      setPlayers(res.data.results)
-    }).catch(error => { throw error; })
+
+    await axios
+      .post(`${API_URL}/user/getPlayers`, {
+        name: name
+      })
+      .then(res => {
+        setPlayers(res.data.results)
+      })
+      .catch(error => { throw error; })
+
     setLoading(false);
   }
 
+  const getAffShare = async function () {
+    const response = await axios
+      .post(`${API_URL}/user/getAffShare`);
+
+    const { success, data } = response.data;
+    if (success) setAffShare(data[0]);
+  };
+
   useEffect(() => {
     getPlayers();
+    getAffShare()
   }, [])
 
   const
     spent = 1000,
-    share = affiliate === "" ? 30 : sup_aff === "" ? 25 : sub_aff === "" ? 22 : 0,
-    level = affiliate === "" ? 1 : sup_aff === "" ? 2 : sub_aff === "" ? 3 : 0,
+    share =
+      affiliate === "" ? affShare.aff_shr
+        : sup_aff === "" ? affShare.sup_shr
+          : sub_aff === "" ? affShare.sub_shr
+            : 0,
+
+    level =
+      affiliate === "" ? 1
+        : sup_aff === "" ? 2
+          : sub_aff === "" ? 3
+            : 0,
+
     pNum = players.filter(ele => ele.affiliate === name).length,
     supPNum = players.filter(ele => ele.sup_aff === name).length,
     subPNum = players.filter(ele => ele.sub_aff === name).length,
 
     getShare = (p) => {
-      const shared = p.affiliate === name ? share : p.sup_aff === name ? 5 : p.sub_aff === name ? 3 : 0;
+      const shared =
+        p.affiliate === name ? share
+          : p.sup_aff === name ? affShare.aff_shr - affShare.sup_shr
+            : p.sub_aff === name ? affShare.sup_shr - affShare.sub_shr
+              : 0;
+
       return shared;
     },
 
     copyLink = () => {
-      navigator.clipboard.writeText(aff_link).then(() => {
-        alert("Copied to clipboard");
-      });
+      navigator.clipboard
+        .writeText(aff_link)
+        .then(() => {
+          dispatch(setInfo({
+            class: "bg-info",
+            time: "just now",
+            context: "Copied to Clipboard!"
+          }))
+        });
     };
 
   return (
     <>
+
       <Navbar />
       <div className="content-wrapper">
         <div className="container-xxl flex-grow-1 container-p-y">
-          <div className="demo-inline-spacing mb-4">
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inviteModal">
-              invite People
-            </button>
-          </div>
           <div className='row mb-4'>
-            <div className='col-md-4 col-6 mb-md-0 mb-4'>
+            <div className='col-md-4 mb-md-0 mb-4'>
               <div className="card mb-4">
                 <h5 className="card-header">Your Infos</h5>
                 <div className="card-body">
@@ -69,16 +110,17 @@ export default function Referals() {
                       height="100"
                       width="100"
                     />
-                    <div className="button-wrapper">
-                      <label htmlFor="" className="btn btn-primary me-2 mb-4" tabIndex="">
-                        <span className="d-none d-sm-block" onClick={() => copyLink()}>{aff_link}</span>
-                        <i className="bx d-block d-sm-none"></i>
-                      </label>
-                      <p className="text-muted mb-0">Click button to copy link.</p>
+                    <div className="nowrap">
+                      <button id="showToastPlacement" className="btn btn-primary me-2 mb-4 nowrap" onClick={() => copyLink()}>
+                        {aff_link}
+                      </button>
+                      <p className="text-muted mb-0 nowrap">Click button to copy link.</p>
                     </div>
                   </div>
                 </div>
+
                 <hr className="my-0" />
+
                 <div className="card-body">
                   <ul className="p-0 m-0">
                     <li className="d-flex mb-4 pb-1">
@@ -156,9 +198,20 @@ export default function Referals() {
                 </div>
               </div>
             </div>
-            <div className='col-md-8 col-6 mb-md-0 mb-4'>
+            <div className='col-md-8 mb-md-0 mb-4'>
               <div className="card">
-                <h5 className="card-header">{"Total Players: " + players.length}</h5>
+                <div className="card-header">
+                  <div style={{ float: "right" }}>
+                    <button type="button"
+                      className="btn btn-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#inviteModal"
+                    >
+                      Invite People
+                    </button>
+                  </div>
+                  <h5>{"Total Players: " + players.length}</h5>
+                </div>
                 <div className="table-responsive text-nowrap">
                   <table className="table">
                     <thead className="table-dark">
@@ -244,6 +297,7 @@ export default function Referals() {
         </div>
       </div>
       <Modal />
+      <Toast />
     </>
   )
 }

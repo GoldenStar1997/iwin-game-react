@@ -1,24 +1,62 @@
-const Notification = [
+const menu = [
 	{
-		id: 1,
-		sender: 'Rishi Chopra',
-		message: `Mauris blandit erat id nunc blandit, ac eleifend dolor pretium.`
+		title: 'Dashboard',
+		link: "dashboard",
+		icon: "bxs-dashboard"
 	},
 	{
-		id: 2,
-		sender: 'Neha Kannned',
-		message: `Proin at elit vel est condimentum elementum id in ante. Maecenas et sapien metus.`
+		title: "User",
+		hr: true
 	},
 	{
-		id: 3,
-		sender: 'Nirmala Chauhan',
-		message: `Morbi maximus urna lobortis elit sollicitudin sollicitudieget elit vel pretium.`
+		title: 'Users',
+		link: "users",
+		icon: "bx-user"
+	},
+	// {
+	// 	title: 'Players',
+	// 	link: "players",
+	// 	icon: "bxl-play-store"
+	// },
+	{
+		title: "Games",
+		hr: true
 	},
 	{
-		id: 4,
-		sender: 'Sina Ray',
-		message: `Sed aliquam augue sit amet mauris volutpat hendrerit sed nunc eu diam.`
-	}
+		title: 'Games',
+		link: "games",
+		icon: "bxs-game"
+	},
+	{
+		title: 'Tournaments',
+		link: "tour",
+		icon: "bxs-dice-5"
+	},
+	{
+		title: 'Achievements',
+		link: "",
+		icon: "bx-medal"
+	},
+	{
+		title: 'Rewards',
+		link: "award",
+		icon: "bxs-award"
+	},
+	{
+		title: "Configuration",
+		hr: true
+	},
+	{
+		title: 'Reports',
+		link: "reports",
+		icon: "bxs-report",
+	},
+	{
+		title: 'Configuration',
+		link: "config",
+		icon: "bxs-cog",
+	},
+
 ];
 
-export default Notification;
+export default menu;
