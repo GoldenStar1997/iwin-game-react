@@ -29,7 +29,7 @@ const App = () => {
         <Route exact path="/profile" element={<Profile />} />
         <Route exact path="/referals" element={<Referals />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
-        <Route exact path="/games/:name" element={<Play />} />
+        <Route exact path="/games/:id" element={<Play />} />
         <Route exact path="/invite/:id" element={<Register invitedBy={true} />} />
 
         <Route exact path="/admin" element={<Admin />} />
