@@ -15,6 +15,7 @@ import Dashboard from './pages/dashboard'
 import Admin from './pages/admin/'
 
 import Error from './pages/error/404.js'
+
 import './App.scss'
 
 const App = () => {

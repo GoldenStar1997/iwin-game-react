@@ -46,7 +46,7 @@ export default function Games() {
               <tr>
                 <th>Name</th>
                 <th>Alias</th>
-                <th>Link</th>
+                {/* <th>Link</th> */}
                 <th>Status</th>
                 <th>Actions</th>
               </tr>
@@ -61,12 +61,9 @@ export default function Games() {
                   games.length > 0 ? (
                     games.map((game, i) => (
                       <tr key={i}>
-                        <td>
-                          <i className="fab fa-angular fa-lg text-danger me-3"></i>
-                          <strong>{game.name}</strong>
-                        </td>
+                        <td>{game.name}</td>
                         <td>{game.alias}</td>
-                        <td>{game.url}</td>
+                        {/* <td>{game.url}</td> */}
                         <td>
                           {
                             game.status === 1 ?

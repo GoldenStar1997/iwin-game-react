@@ -38,10 +38,10 @@ export default function Contact() {
             <div className="card-body">
               <div className="app-brand justify-content-center">
                 <Link to="/" className="app-brand-link gap-2">
-                  <span className="app-brand-logo demo">
-                    <img src="./assets/img/logo.svg" alt="" height="100" width="100" />
+                  <span className="app-brand-logo">
+                    <img src="../assets/img/logo.svg" alt="" height="100" width="100" />
                   </span>
-                  <span className="app-brand-text demo text-body fw-bolder">Contact</span>
+                  <span className="app-brand-text text-body fw-bolder">Contact</span>
                 </Link>
               </div>
               <h4 className="mb-2">Contact Us</h4>

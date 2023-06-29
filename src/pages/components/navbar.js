@@ -5,19 +5,6 @@ import { Link } from 'react-router-dom'
 
 export default function Navbar() {
 
-  useEffect(() => {
-    const $ = window.$;
-    const fixed_top = $("#header-section");
-
-    $(window).on("scroll", function () {
-      if ($(window).scrollTop() > 50) {
-        fixed_top.addClass("animated fadeInDown header-fixed");
-      } else {
-        fixed_top.removeClass("animated fadeInDown header-fixed");
-      }
-    });
-  }, [])
-
   const {
     sub_aff, status
   } = useSelector((state) => state.auth.userInfo);

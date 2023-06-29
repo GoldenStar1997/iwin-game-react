@@ -20,7 +20,7 @@ function Games() {
             title="<i className='bx bx-dollar bx-xs'></i> <span>Tooltip on left</span>"
           >
             <Link to={'/games/' + item.id} className="card bg-dark border-0 text-white">
-              <img className="card-img" src={"./assets/img/games/" + item.image} alt="Card" height={150} />
+              <img className="card-img" src={"../assets/img/games/" + item.image} alt="Card" height={150} />
               <div className="card-body">
                 <p className="card-text">
                   {item.name}

@@ -1,27 +1,26 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react';
+import Toast from 'react-bootstrap/Toast';
+import { useDispatch, useSelector } from 'react-redux';
+import { setInfo } from '../../reducers/alertSlice';
 
-export default function Toast() {
-  const {
-    context
-  } = useSelector((state) => state.alert.info);
+export default function Alert() {
+  const { show, info, time, cls, title } = useSelector((state) => state.alert.info);
+  const dispatch = useDispatch();
+
+  const handleClose = () => {
+    dispatch(setInfo({
+      show: false
+    }));
+  };
 
   return (
-    <div
-      className="bs-toast toast toast-placement-ex m-2 fade bg-primary top-0 end-0 hide"
-      role="alert"
-      aria-live="assertive"
-      aria-atomic="true"
-    >
-      <div className="toast-header">
-        <i className="bx bx-bell me-2"></i>
-        <div className="me-auto fw-semibold">Notification</div>
-        <small>Just Now</small>
-        <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div className="toast-body">
-        {context}
-      </div>
-    </div>
-  )
+    <Toast className={cls} show={show} onClose={handleClose}>
+      <Toast.Header>
+        <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+        <strong className="me-auto">{title}</strong>
+        <small>{time}</small>
+      </Toast.Header>
+      <Toast.Body>{info}</Toast.Body>
+    </Toast>
+  );
 }

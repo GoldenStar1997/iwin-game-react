@@ -74,9 +74,9 @@ export default function Referals() {
     getShare = (p) => {
       const shared =
         p.affiliate === name ? share
-          : p.sup_aff === name ? affShare.aff_shr - affShare.sup_shr
-          : p.sub_aff === name ? affShare.sup_shr - affShare.sub_shr
-          : 0;
+        : p.sup_aff === name ? affShare.aff_shr - affShare.sup_shr
+        : p.sub_aff === name ? affShare.sup_shr - affShare.sub_shr
+        : 0;
 
       return shared;
     },
@@ -86,9 +86,11 @@ export default function Referals() {
         .writeText(aff_link)
         .then(() => {
           dispatch(setInfo({
-            className: "bg-info",
-            time: "just now",
-            context: "Copied to Clipboard!"
+            cls: "bg-info",
+            time: "Just Now",
+            title: "Notification",
+            info: "Copied to Clipboard!",
+            show: true
           }))
         });
     };
@@ -113,7 +115,7 @@ export default function Referals() {
                       width="100"
                     />
                     <div className="nowrap">
-                      <button id="showToastPlacement" className="btn btn-primary me-2 mb-4 nowrap" onClick={() => copyLink()}>
+                      <button className="btn btn-primary me-2 mb-4 nowrap" onClick={() => copyLink()}>
                         {aff_link}
                       </button>
                       <p className="text-muted mb-0 nowrap">Click button to copy link.</p>
@@ -237,7 +239,7 @@ export default function Referals() {
                             players.map((player, i) => (
                               <tr key={i}>
                                 <td>
-                                  <i className="fab fa-angular fa-lg text-danger me-3"></i>
+
                                   <strong>{player.name}</strong>
                                 </td>
                                 <td>{getShare(player)}%</td>
@@ -255,7 +257,7 @@ export default function Referals() {
                                           className="avatar avatar-xs pull-up"
                                           title={player.sub_aff === name ? "You" : player.sub_aff}
                                         >
-                                          <img src="../assets/img/avatars/7.png" alt="Avatar" className="rounded-circle" />
+                                          <img src="../assets/img/avatars/1.png" alt="Avatar" className="rounded-circle" />
                                         </li>
                                         : null
                                     }
@@ -268,7 +270,7 @@ export default function Referals() {
                                           className="avatar avatar-xs pull-up"
                                           title={player.sup_aff === name ? "You" : player.sup_aff}
                                         >
-                                          <img src="../assets/img/avatars/7.png" alt="Avatar" className="rounded-circle" />
+                                          <img src="../assets/img/avatars/2.png" alt="Avatar" className="rounded-circle" />
                                         </li>
                                         : null
                                     }
@@ -281,7 +283,7 @@ export default function Referals() {
                                           className="avatar avatar-xs pull-up"
                                           title={player.affiliate === name ? "You" : player.affiliate}
                                         >
-                                          <img src="../assets/img/avatars/7.png" alt="Avatar" className="rounded-circle" />
+                                          <img src="../assets/img/avatars/3.png" alt="Avatar" className="rounded-circle" />
                                         </li>
                                         : null
                                     }

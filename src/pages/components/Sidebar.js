@@ -1,20 +1,21 @@
 import React from 'react'
-import menu from '../../../utils/pageMenu'
 import { useDispatch } from 'react-redux'
-import { setPage } from '../../../reducers/adminSlice'
 import { Link } from 'react-router-dom'
+
+import menu from '../../utils/pageMenu'
+import { setPage } from '../../reducers/adminSlice'
 
 export default function Sidebar() {
   const dispatch = useDispatch();
 
   return (
     <aside id="layout-menu" className="layout-menu menu-vertical menu bg-dark">
-      <div className="app-brand demo">
+      <div className="app-brand mt-3 mb-3">
         <Link to="/" className="app-brand-link">
-          <span className="app-brand-logo demo">
-            <img src="./assets/img/logo.svg" alt="" height="50" width="50" />
+          <span className="app-brand-logo">
+            <img src="../assets/img/logo.svg" alt="" height="50" width="50" />
           </span>
-          <span className="app-brand-text demo menu-text fw-bolder ms-2">iWinGaming</span>
+          <span className="app-brand-text menu-text fw-bolder ms-2">iWinGaming</span>
         </Link>
         <Link to="" className="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
           <i className="bx bx-chevron-left bx-sm align-middle"></i>

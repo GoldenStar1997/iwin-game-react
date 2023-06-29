@@ -2,26 +2,29 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { API_URL } from '../../../utils/url'
 import { Link } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 
 
-export default function Tournaments() {
+export default function Tour() {
 
   const [tours, setTours] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const getTours = async function () {
-    setLoading(true);
-
-    const response = await axios
-      .post(`${API_URL}/admin/getTours`);
-
-    const { success, data } = response.data;
-    if (success) setTours(data)
-
-    setLoading(false);
-  };
 
   useEffect(() => {
+
+    const getTours = async function () {
+      setLoading(true);
+
+      const response = await axios
+        .post(`${API_URL}/admin/getTours`);
+
+      const { success, data } = response.data;
+      if (success) setTours(data)
+
+      setLoading(false);
+    };
+
     getTours();
   }, [])
 
@@ -57,16 +60,13 @@ export default function Tournaments() {
               {
                 loading ? (
                   <tr>
-                    <td style={{ textAlign: "center" }} colSpan={5}>Loading...</td>
+                    <td style={{ textAlign: "center" }} colSpan={6}>Loading...</td>
                   </tr>
                 ) : (
                   tours.length > 0 ? (
                     tours.map((tour, i) => (
                       <tr key={i}>
-                        <td>
-                          <i className="fab fa-angular fa-lg text-danger me-3"></i>
-                          <strong>{tours.title}</strong>
-                        </td>
+                        <td>{tours.title}</td>
                         <td>{tour.game}</td>
                         <td>{tour.stage}</td>
                         <td>

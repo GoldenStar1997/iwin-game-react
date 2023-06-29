@@ -3,11 +3,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  info: {
-    className: "bg-info",
-    time: "Just Now",
-    context: ""
-  }
+  info: {}
 };
 
 const alertSlice = createSlice({

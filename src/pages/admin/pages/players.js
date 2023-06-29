@@ -51,7 +51,7 @@ export default function Players() {
                   users.map((user, i) => (
                     <tr key={i}>
                       <td>
-                        <i className="fab fa-angular fa-lg text-danger me-3"></i>
+                        
                         <strong>{user.name}</strong>
                       </td>
                       <td>

@@ -43,7 +43,7 @@ export default function Home({ tour }) {
             </div>
             <div className="col-md-3">
               <video id="" autoPlay>
-                <source src="./assets/ads/mov_bbb.mp4" type="video/mp4" />
+                <source src="../assets/ads/mov_bbb.mp4" type="video/mp4" />
               </video>
             </div>
           </div>

@@ -15,7 +15,6 @@ export default function Login() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -60,7 +59,7 @@ export default function Login() {
                 <div className="app-brand justify-content-center">
                   <Link to="/" className="app-brand-link gap-2">
                     <span className="app-brand-logo demo">
-                      <img src="./assets/img/logo.svg" alt="" height="100" width="100"/>
+                      <img src="../assets/img/logo.svg" alt="" height="100" width="100" />
                     </span>
                     <span className="app-brand-text demo text-body fw-bolder">iWinGaming</span>
                   </Link>
@@ -70,12 +69,10 @@ export default function Login() {
 
                 <form id="formAuthentication" className="mb-3" onSubmit={handleSubmit(onSubmit)}>
                   <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Email or Username</label>
+                    <label className="form-label">Email or Username</label>
                     <input
                       type="text"
                       className="form-control"
-                      id="email"
-                      name="email-username"
                       placeholder="Enter your email or username"
                       autoFocus
                       {...register("name", { required: true })}
@@ -83,7 +80,7 @@ export default function Login() {
                   </div>
                   <div className="mb-3 form-password-toggle">
                     <div className="d-flex justify-content-between">
-                      <label className="form-label" htmlFor="password">Password</label>
+                      <label className="form-label">Password</label>
                       <Link to="auth-forgot-password-basic.html">
                         <small>Forgot Password?</small>
                       </Link>
@@ -91,9 +88,7 @@ export default function Login() {
                     <div className="input-group input-group-merge">
                       <input
                         type="password"
-                        id="password"
                         className="form-control"
-                        name="password"
                         placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                         aria-describedby="password"
                         {...register("password", { required: true })}
@@ -103,8 +98,8 @@ export default function Login() {
                   </div>
                   <div className="mb-3">
                     <div className="form-check">
-                      <input className="form-check-input" type="checkbox" id="remember-me" />
-                      <label className="form-check-label" htmlFor="remember-me"> Remember Me </label>
+                      <input className="form-check-input" type="checkbox" />
+                      <label className="form-check-label"> Remember Me </label>
                     </div>
                   </div>
                   <div className="mb-3">

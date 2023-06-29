@@ -49,10 +49,7 @@ export default function Users() {
                 users.length > 0 ? (
                   users.map((user, i) => (
                     <tr key={i}>
-                      <td>
-                        <i className="fab fa-angular fa-lg text-danger me-3"></i>
-                        <strong>{user.name}</strong>
-                      </td>
+                      <td>{user.name}</td>
                       <td>
                         {
                           user.affiliate ? user.affiliate : "not invited"
