@@ -29,7 +29,7 @@ const menu = [
 	},
 	{
 		title: 'Tournaments',
-		link: "tour",
+		link: "tours",
 		icon: "bxs-dice-5"
 	},
 	{

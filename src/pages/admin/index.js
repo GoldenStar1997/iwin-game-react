@@ -8,7 +8,9 @@ import Modal from '../components/modal'
 import Conf from './pages/config'
 import Users from './pages/users'
 import Games from './pages/games'
-import Tour from './pages/tour'
+import Tours from './pages/tours'
+import AddGame from './pages/addGame'
+import AddTour from './pages/addTour'
 
 export default function Admin() {
   const selectedItem = useSelector((state) => state.admin.selectedItem);
@@ -24,7 +26,9 @@ export default function Admin() {
                 {selectedItem === 'config' && <Conf />}
                 {selectedItem === 'users' && <Users />}
                 {selectedItem === 'games' && <Games />}
-                {selectedItem === 'tour' && <Tour />}
+                {selectedItem === 'tours' && <Tours />}
+                {selectedItem === 'addGame' && <AddGame />}
+                {selectedItem === 'addTour' && <AddTour />}
               </div>
             </div>
           </div>

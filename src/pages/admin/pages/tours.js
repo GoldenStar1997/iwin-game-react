@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { API_URL } from '../../../utils/url'
+import { setPage } from '../../../reducers/adminSlice'
 import { Link } from 'react-router-dom';
-import { useForm } from "react-hook-form";
+import { useDispatch } from 'react-redux'
 
 
 export default function Tour() {
 
-  const [tours, setTours] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const
 
+    dispatch = useDispatch(),
+    [tours, setTours] = useState([]),
+    [loading, setLoading] = useState(true),
 
-  useEffect(() => {
-
-    const getTours = async function () {
+    getTours = async function () {
       setLoading(true);
 
       const response = await axios
@@ -25,6 +26,7 @@ export default function Tour() {
       setLoading(false);
     };
 
+  useEffect(() => {
     getTours();
   }, [])
 
@@ -36,8 +38,7 @@ export default function Tour() {
           <div style={{ float: "right" }}>
             <button type="button"
               className="btn btn-primary"
-              data-bs-toggle="modal"
-              data-bs-target="#createTourModal"
+              onClick={() => dispatch(setPage('addTour'))}
             >
               Create Tournaments
             </button>

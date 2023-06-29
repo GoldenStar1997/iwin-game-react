@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { API_URL } from '../../../utils/url'
 import { Link } from 'react-router-dom'
+import { setPage } from '../../../reducers/adminSlice'
+import { useDispatch } from 'react-redux'
 
 
 export default function Games() {
+  const dispatch = useDispatch();
 
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -32,8 +35,7 @@ export default function Games() {
           <div style={{ float: "right" }}>
             <button type="button"
               className="btn btn-primary"
-              data-bs-toggle="modal"
-              data-bs-target="#newGameModal"
+              onClick={() => dispatch(setPage('addGame'))}
             >
               Add New Game
             </button>

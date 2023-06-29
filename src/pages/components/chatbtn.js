@@ -11,7 +11,9 @@ export default function chatbtn() {
         data-bs-target="#offcanvasBackdrop"
         aria-controls="offcanvasBackdrop"
       >
-        <i className='menu-icon tf-icons bx bx-support'></i> Chat <span className="badge">4</span>
+        <span className="badge rounded-pill bg-danger">4</span>
+        &nbsp;&nbsp;
+        <i className='tf-icons bx bx-message-square'></i>
       </Link>
     </div>
   )
